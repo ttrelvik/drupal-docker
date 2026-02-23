@@ -1,6 +1,6 @@
 # Stage 1: Build the application using a PHP base to ensure OS consistency.
 # When updating the PHP version here, be sure to also update it in stage 2.
-FROM php:8.3-fpm-bookworm AS builder
+FROM php:8.4-fpm-bookworm AS builder
 
 # Set the working directory for the build.
 WORKDIR /app
@@ -29,7 +29,7 @@ RUN composer create-project drupal/recommended-project:^11 . --no-install
 # Add all enabled modules and dependencies.
 RUN composer require \
     "drush/drush:^13" \
-    "drupal/admin_toolbar:^3.4" \
+    "drupal/admin_toolbar:^3.6" \
     "drupal/add_content_by_bundle:^1.2" \
     "drupal/ai:^1.2" \
     "drupal/ai_agents:^1.2" \
@@ -41,15 +41,15 @@ RUN composer require \
     "drupal/automatic_updates:^4.1" \
     "drupal/autosave_form:^1.10" \
     "drupal/better_exposed_filters:^7.1" \
-    "drupal/bpmn_io:^2.0" \
+    "drupal/bpmn_io:^3.0" \
     "drupal/captcha:^2.0" \
     "drupal/coffee:^2.0" \
     "drupal/crop:^2.5" \
     "drupal/dashboard:^2.2" \
-    "drupal/drupal_cms_helper:^1.2" \
+    "drupal/drupal_cms_helper:^2.0" \
     "drupal/easy_breadcrumb:^2.0" \
     "drupal/easy_email:^3.0" \
-    "drupal/eca:^2.1" \
+    "drupal/eca:^3.0" \
     "drupal/focal_point:^2.1" \
     "drupal/friendlycaptcha:^1.1" \
     "drupal/gemini_provider:^1.0@beta" \
@@ -87,7 +87,7 @@ RUN composer require \
 RUN composer install --no-dev --optimize-autoloader
 
 # Stage 2: Build the production environment base. This is kept separate for clarity and caching.
-FROM php:8.3-fpm-bookworm AS drupal_app_base
+FROM php:8.4-fpm-bookworm AS drupal_app_base
 
 # Set environment variables for the application.
 ENV PATH="/app/vendor/bin:$PATH"
