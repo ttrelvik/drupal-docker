@@ -22,66 +22,8 @@ RUN docker-php-ext-install -j$(nproc) gd zip pgsql pdo_pgsql
 # Install Composer globally.
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Create the project using the recommended project template.
-# This aligns with the "Maintainable Core" strategy.
-RUN composer create-project drupal/recommended-project:^11 . --no-install
-
-# Add all enabled modules and dependencies.
-RUN composer require \
-    "drush/drush:^13" \
-    "drupal/admin_toolbar:^3.6" \
-    "drupal/add_content_by_bundle:^1.2" \
-    "drupal/ai:^1.2" \
-    "drupal/ai_agents:^1.2" \
-    "drupal/ai_image_alt_text:^1.0" \
-    "drupal/ai_provider_openai:^1.2" \
-    "drupal/ai_seo:^1.0" \
-    "drupal/ai_summarize_document:^1.1" \
-    "drupal/ai_vdb_provider_postgres:^1.0@alpha" \
-    "drupal/automatic_updates:^4.1" \
-    "drupal/autosave_form:^1.10" \
-    "drupal/better_exposed_filters:^7.1" \
-    "drupal/bpmn_io:^3.0" \
-    "drupal/captcha:^2.0" \
-    "drupal/coffee:^2.0" \
-    "drupal/crop:^2.5" \
-    "drupal/dashboard:^2.2" \
-    "drupal/drupal_cms_helper:^2.0" \
-    "drupal/easy_breadcrumb:^2.0" \
-    "drupal/easy_email:^3.0" \
-    "drupal/eca:^3.0" \
-    "drupal/focal_point:^2.1" \
-    "drupal/friendlycaptcha:^1.1" \
-    "drupal/gemini_provider:^1.0@beta" \
-    "drupal/gin_toolbar:^3.0" \
-    "drupal/honeypot:^2.2" \
-    "drupal/jquery_ui:^1.8" \
-    "drupal/jquery_ui_resizable:^2.1" \
-    "drupal/key:^1.22" \
-    "drupal/klaro:^3.0" \
-    "drupal/linkit:^7.0" \
-    "drupal/login_emailusername:^3.0" \
-    "drupal/mailsystem:^4.5" \
-    "drupal/menu_link_attributes:^1.6" \
-    "drupal/metatag:^2.2" \
-    "drupal/modeler_api:^1.0" \
-    "drupal/pathauto:^1.14" \
-    "drupal/project_browser:^2.1" \
-    "drupal/redirect:^1.12" \
-    "drupal/sam:^1.3" \
-    "drupal/scheduler:^2.2" \
-    "drupal/scheduler_content_moderation_integration:^3.0" \
-    "drupal/search_api:^1.40" \
-    "drupal/selective_better_exposed_filters:^3.0" \
-    "drupal/svg_image:^3.2" \
-    "drupal/symfony_mailer_lite:^2.0" \
-    "drupal/tagify:^1.2" \
-    "drupal/token:^1.17" \
-    "drupal/trash:^3.0" \
-    "drupal/drupal_cms_olivero:^1.2" \
-    "drupal/easy_email_theme:^1.1" \
-    "drupal/gin:^5.0" \
-    --update-no-dev --no-install
+# Copy package definitions.
+COPY composer.json composer.lock ./
 
 # Now install all dependencies without dev packages and optimize the autoloader.
 RUN composer install --no-dev --optimize-autoloader

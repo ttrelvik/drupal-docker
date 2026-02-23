@@ -9,3 +9,16 @@ secrets/
 backups/
 
 blog_migration.csv
+
+# Ignore downloaded composer dependencies to maintain a clean local working directory
+/vendor/
+/libraries/
+/recipes/
+/web/core/
+/web/libraries/
+/web/modules/contrib/
+/web/themes/contrib/
+
+# Protect custom work
+!/web/modules/custom/
+!/web/themes/custom/

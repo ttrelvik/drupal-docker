@@ -2,7 +2,7 @@ services:
   drupal:
     # Use the custom Drupal CMS image with pre-installed dependencies
     # pulled from Docker Hub:
-    image: ttrelvik/drupal-core:alpha8
+    image: ttrelvik/drupal-core:alpha9
     volumes:
       # Mount the entire sites/default directory for persistence
       - sites_default:/app/web/sites/default
@@ -63,6 +63,22 @@ services:
       - drupal_net_dev # renamed for dev
     deploy:
       replicas: 1
+
+  composer:
+    image: composer:latest
+    profiles: [ "tools" ]
+    working_dir: /app
+    volumes:
+      # Mount the explicit code root to allow write operations
+      - .:/app
+      # Anonymous volumes to keep the host clean and prevent permission errors
+      - /app/vendor/
+      - /app/web/core/
+      - /app/web/libraries/
+      - /app/web/modules/contrib/
+      - /app/web/themes/contrib/
+      - /app/libraries/
+      - /app/recipes/
 
 volumes:
   sites_default:
