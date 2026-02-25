@@ -1,24 +1,17 @@
-# Ignore OS-generated files.
+# OS files
 .DS_Store
 
-# Local environment files and secrets
+# Secrets & Env
 *.env
 secrets/
 
-# Ignore backup directory
+# Project specific
 backups/
-
 blog_migration.csv
 
-# Ignore downloaded composer dependencies to maintain a clean local working directory
+# COMPOSER GENERATED
 /vendor/
 /libraries/
 /recipes/
-/web/core/
-/web/libraries/
-/web/modules/contrib/
-/web/themes/contrib/
-
-# Protect custom work
-!/web/modules/custom/
-!/web/themes/custom/
+.editorconfig
+/web/

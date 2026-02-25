@@ -1,0 +1,14 @@
+services:
+  composer:
+    image: composer:latest
+    working_dir: /app
+    volumes:
+      - .:/app
+      # Anonymous "Ghost" volumes to keep your host clean
+      - /app/vendor/
+      - /app/web/core/
+      - /app/web/libraries/
+      - /app/web/modules/contrib/
+      - /app/web/themes/contrib/
+      - /app/libraries/
+      - /app/recipes/
