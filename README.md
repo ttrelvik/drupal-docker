@@ -4,16 +4,16 @@ This project builds a **production-ready, CI/CD-friendly Docker image** for Tom 
 
 ## ✅ Architecture
 
-- **Base Image**: `drupal/recommended-project` (via `php:8.3-fpm-bookworm`)
+- **Base Image**: `drupal/recommended-project` (via `php:8.4-fpm-bookworm`)
 - **Web Server**: Nginx (bundled in the same image for simplicity)
-- **Database**: PostgreSQL with `pgvector` extension (for AI embeddings)
+- **Database**: PostgreSQL 16 with `pgvector` extension (for AI embeddings)
 - **Orchestration**: Docker Swarm
 - **Ingress**: Traefik (with Let's Encrypt TLS)
 
 ## 🚀 Images
 
 The project builds the following image:
-- `ttrelvik/drupal-core:alpha3` (Current production tag)
+- `ttrelvik/drupal-core:beta1` (Current production tag)
 
 This image follows a **Configuration-as-Code** strategy:
 - The `config/` directory (exported from active configuration) is **burned into the image** at build time.
@@ -23,12 +23,46 @@ This image follows a **Configuration-as-Code** strategy:
 
 ## 🛠️ Usage & Workflows
 
-### 1. Prerequisites
+### 1. Prerequisites (Docker-First Workflow)
+This project prioritizes a **Docker-based workflow** over any local PHP or Composer installation. You do not need PHP or Composer installed on your host machine to manage or run this project.
 - Docker & Docker Compose
 - Docker Swarm (initialized via `docker swarm init`)
 - [Traefik](https://doc.traefik.io/traefik/) running on the swarm (connected to external network `traefik-net`)
 
-### 2. Environment Setup
+### 2. Tri-Compose Architecture
+The project leverages three different compose files for different purposes:
+- **`docker-compose.yml`**: Used for the running production site (Drupal + Postgres/pgvector). Deployed via `docker stack deploy -c docker-compose.yml drupal`.
+- **`docker-compose.dev.yml`**: Used for the running development site. Mirrors production architecture but uses development secrets/domains. Deployed via `docker stack deploy -c docker-compose.dev.yml drupal-dev`.
+- **`docker-compose.tools.yml`**: Dedicated solely to one-off development tasks (like dependency management operations via Composer). Deployed via `docker compose -f docker-compose.tools.yml run --rm composer`.
+
+### 3. Dependency Management & The "Ghost Volume" Workflow
+We manage dependencies using the `composer` service defined in `docker-compose.tools.yml`. This file employs **"Ghost Volumes"** (anonymous volumes) targeting directories like `/app/vendor/` and `/app/web/modules/contrib/`.
+
+**Why Ghost Volumes?** 
+They keep the host machine cleaner by preventing thousands of dependency files from syncing back to the host, while still allowing the tools container to manage and write those dependencies internally to generate an updated `composer.lock` file.
+
+**Adding a Module:**
+```bash
+docker compose -f docker-compose.tools.yml run --rm composer composer require <package> --ignore-platform-reqs
+```
+
+**Removing a Module:**
+When removing a module, you must also uninstall it in the running Drupal instance to keep the environment clean.
+```bash
+# 1. Uninstall in the running container first
+docker exec -it $(docker ps -qf name=drupal-dev_drupal) drush pmu <module_name>
+
+# 2. Remove the dependency via the tools container
+docker compose -f docker-compose.tools.yml run --rm composer composer remove <package> --ignore-platform-reqs
+```
+
+### 4. The Build Pipeline
+The deployment lifecycle follows this progression:
+1. **Update Blueprint**: Use the tools container to update dependencies, which generates a new `composer.lock` and `composer.json`.
+2. **Build Factory**: The build process uses the `Dockerfile` to read the `composer.lock` and build a fresh image containing all required files.
+3. **Deploy to Swarm (Production)**: The immutable image is deployed to the Swarm cluster.
+
+### 5. Environment Setup
 The project uses distinct environment files for Production vs. Development:
 - **Production**: `.env` (References `blog.trelvik.net`, external secrets)
 - **Development**: `dev.env` (References `dev-blog.trelvik.net`, development secrets)
@@ -84,38 +118,22 @@ Restores a backup tarball to a specified stack (e.g., refreshing Dev with Prod d
 ./restore.sh drupal-dev
 ```
 
-### `deploy.sh` (Deployment & AI Initialization)
-**CRITICAL**: This script must be run inside the Drupal container after a fresh deployment. It handles logic that cannot be static in the image.
+### Configuration Export Workflow
+When you make structural changes to the site via the running Dev container (e.g., adding a field, creating a view via the Drupal GUI), follow this workflow to burn those changes into the Git repository and subsequent Docker builds:
 
-**What it does:**
-1.  **Config Import**: Syncs the database with the `config/` directory.
-2.  **AI Domain Patching**: Updates the AI Assistant's system prompt to use the correct domain (e.g., changing `dev-blog` -> `blog`) so that cited links work for the user.
-3.  **RAG Indexing**: Triggers `drush search-api:index` to generate vector embeddings for your content. Without this, the AI cannot "read" your blog posts.
-
-**When to run it:**
-- Immediately after checking out/deploying a new stack.
-- After importing a database backup (to re-sync config).
-- When you notice the AI is unaware of new content.
-
-```bash
-docker exec -it [container_id] /app/deploy.sh
-```
-
----
-
-## 🔧 Customization
-
-### Adding Modules
-1.  Edit `Dockerfile` (Builder Stage).
-2.  Add packages to the `composer require` command.
-3.  Rebuild image: `docker build -t ttrelvik/drupal-core:tag .`
-
-### Updating Configuration
-1.  Make changes in the running Dev container (GUI or Drush).
-2.  Export config to host:
-    ```bash
-    docker exec [dev_container_id] drush cex -y
-    # (Then copy files from container /tmp to local config/ dir if not mounted)
-    ```
-    *Note: We typically commit the `config/` directory to git.*
-3.  Rebuild image to include new config.
+1. **Export the Active Configuration**:
+   Exec into the running DEV container to generate the sync files.
+   ```bash
+   docker exec -it $(docker ps -qf name=drupal-dev_drupal) drush cex -y
+   ```
+2. **Sync the Configuration to the Host**:
+   Because the container's `config/sync` directory is not mounted as a volume, you need to copy the generated YAML files back to your local host folder so they can be committed to Git.
+   ```bash
+   docker cp $(docker ps -qf name=drupal-dev_drupal):/app/config/sync/. ./config/
+   ```
+   *Note: We commit the `config/` directory to Git.*
+3. **Rebuild the Custom Image**: 
+   The `Dockerfile` will ingest the updated `config/` directory during the build process.
+   ```bash
+   docker build -t ttrelvik/drupal-core:latest .
+   ```
