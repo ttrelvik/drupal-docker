@@ -137,3 +137,52 @@ When you make structural changes to the site via the running Dev container (e.g.
    ```bash
    docker build -t ttrelvik/drupal-core:latest .
    ```
+
+---
+
+## 🔄 Maintenance & Updates
+
+### Updating Drupal & Modules
+
+**IMPORTANT:** Version numbers should **never** be manually edited in `composer.json`. Always use Composer to manage dependencies.
+
+#### Step 1: The Dry Run
+Preview updates without changing the `composer.lock` file. This helps identify major version leaps in AI or core libraries before committing to them:
+```bash
+docker compose -f docker-compose.tools.yml run --rm composer composer update --ignore-platform-reqs --dry-run
+```
+
+#### Step 2: The Blueprint Update
+Actually execute the update to regenerate the `composer.lock` file with the newest compatible versions:
+```bash
+docker compose -f docker-compose.tools.yml run --rm composer composer update --ignore-platform-reqs
+```
+
+#### Step 3: Targeted Updates
+To minimize risk, you can update a single package (e.g., `drupal/core-recommended`) to narrow the scope of the update:
+```bash
+docker compose -f docker-compose.tools.yml run --rm composer composer update drupal/core-recommended --with-dependencies --ignore-platform-reqs
+```
+
+### The "Post-Update" Lifecycle
+
+After making changes to the `composer.lock` utilizing the tools container, you **must** perform the following steps to deploy the update:
+
+1. **Rebuild the image with a new tag:** (e.g., `alpha11` or `beta1`)
+   ```bash
+   docker build -t ttrelvik/drupal-core:beta1 .
+   ```
+
+2. **Deploy the stack:**
+   Update your compose file to reference the new tag if necessary, then run:
+   ```bash
+   docker stack deploy -c docker-compose.yml drupal
+   ```
+
+3. **Database Updates & Cache Rebuild:**
+   Immediately after the new container is running, execute database updates and rebuild the cache inside the running container to ensure the new code matches the database schema:
+   ```bash
+   docker exec -it $(docker ps -qf name=drupal_drupal) drush updb -y
+   docker exec -it $(docker ps -qf name=drupal_drupal) drush cr
+   ```
+   *(For development environments, target the `drupal-dev_drupal` container instead).*

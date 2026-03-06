@@ -16,7 +16,7 @@ Big-picture architecture (what to expect):
 
 Developer workflows & STRICT COMMAND RULES:
 - **FORBIDDEN:** Never suggest running Composer or Drush commands directly on the host. We use a Docker Swarm workflow, not Docker Compose for the running architecture.
-- **ALWAYS wrap Composer commands** in the tools container syntax to use Ghost Volumes:
+- **ALWAYS wrap Composer commands** in the tools container syntax to use Ghost Volumes, and **ALWAYS suggest the `--ignore-platform-reqs` flag**, as the tools container may lack specific PHP extensions found in the production image:
   ```bash
   docker compose -f docker-compose.tools.yml run --rm composer composer <command> --ignore-platform-reqs
   ```
@@ -34,7 +34,7 @@ Developer workflows & STRICT COMMAND RULES:
   docker service logs -f drupal-dev_drupal
   ```
 
-Adding and Removing Modules:
+Adding, Removing, and Updating Modules:
 - **Adding a Module:**
   ```bash
   docker compose -f docker-compose.tools.yml run --rm composer composer require <package> --ignore-platform-reqs
@@ -44,6 +44,11 @@ Adding and Removing Modules:
   ```bash
   docker exec -it $(docker ps -qf name=drupal-dev_drupal) drush pmu <module_name>
   docker compose -f docker-compose.tools.yml run --rm composer composer remove <package> --ignore-platform-reqs
+  ```
+- **Updating a Module:**
+  When asked how to update a module, always recommend the `--dry-run` check first to identify major version leaps in AI or core libraries.
+  ```bash
+  docker compose -f docker-compose.tools.yml run --rm composer composer update <package> --with-dependencies --ignore-platform-reqs --dry-run
   ```
 
 Project-specific conventions and gotchas (do not assume defaults):
