@@ -37,16 +37,17 @@ echo "Enabling maintenance mode..."
 run_in_container drush sset system.maintenance_mode 1 -y
 
 echo "Creating archive dump inside the container..."
-run_in_container drush archive:dump --db --files --destination=$BACKUP_DEST_IN_CONTAINER --extra-dump=--no-owner -y
+run_in_container drush archive:dump --overwrite --db --files --destination=$BACKUP_DEST_IN_CONTAINER --extra-dump=--no-owner -y
 
 echo "Copying archive from container to host..."
 # Create timestamped directory here to ensure it only gets created on successful backup
 BACKUP_DIR="$BACKUP_DIR_BASE/$(date +%Y-%m-%d_%H-%M-%S)"
 mkdir -p "$BACKUP_DIR"
-docker cp "$(get_container_id)":"$BACKUP_DEST_IN_CONTAINER" "$BACKUP_DIR/"
+# Copy the file from the container to the host
+docker exec "$(get_container_id)" cat "$BACKUP_DEST_IN_CONTAINER" > "$BACKUP_DIR/$BACKUP_FILENAME"
 
 echo "Cleaning up temporary archive file in container..."
-run_in_container rm "$BACKUP_DEST_IN_CONTAINER"
+run_in_container rm -f "$BACKUP_DEST_IN_CONTAINER"
 
 # --- FINAL CLEANUP ---
 cleanup

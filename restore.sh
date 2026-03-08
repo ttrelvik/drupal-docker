@@ -69,7 +69,8 @@ run_in_container sh -c 'cat >> /app/web/sites/default/settings.php' <<EOF
 EOF
 
 echo "Step 2: Copying backup archive into the container..."
-docker cp "$BACKUP_PATH" "$(get_container_id):$RESTORE_DEST_IN_CONTAINER"
+# Copy the file from the host to the container
+docker exec -i "$(get_container_id)" sh -c "cat > $RESTORE_DEST_IN_CONTAINER" < "$BACKUP_PATH"
 
 echo "Step 3: Extracting the archive inside the container..."
 run_in_container mkdir -p "$EXTRACT_DIR"
@@ -83,7 +84,7 @@ echo "Step 5: Restoring the files..."
 run_in_container rsync -a --delete "$EXTRACT_DIR/files/" /app/web/sites/default/files/
 
 echo "Step 6: Cleaning up temporary files in container..."
-run_in_container rm "$RESTORE_DEST_IN_CONTAINER"
+run_in_container rm -f "$RESTORE_DEST_IN_CONTAINER"
 run_in_container rm -rf "$EXTRACT_DIR"
 
 echo "Step 7: Finalizing the site..."
