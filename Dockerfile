@@ -79,8 +79,8 @@ COPY .docker/nginx/default.conf /etc/nginx/sites-available/default
 COPY .docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY .docker/drupal/settings.local.php /app/settings.local.php
 COPY config /app/config/sync
-COPY deploy.sh /app/deploy.sh
-RUN chmod +x /app/deploy.sh /usr/local/bin/entrypoint.sh
+COPY config-import.sh /app/config-import.sh
+RUN chmod +x /app/config-import.sh /usr/local/bin/entrypoint.sh
 
 # Prepare settings.php to include settings.local.php by default.
 # This avoids manual edits after a container is created.

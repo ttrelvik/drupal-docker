@@ -33,6 +33,10 @@ Developer workflows & STRICT COMMAND RULES:
   ```bash
   docker service logs -f drupal-dev_drupal
   ```
+- **Post-Deployment Configuration**: The image contains `/app/config-import.sh` for syncing Drupal configuration, updating the AI agent system prompt, and re-indexing site content. This must be executed **inside** the running container:
+  ```bash
+  docker exec -it $(docker ps -qf name=drupal-dev_drupal) /app/config-import.sh
+  ```
 
 Adding, Removing, and Updating Modules:
 - **Adding a Module:**

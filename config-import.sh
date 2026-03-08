@@ -4,7 +4,7 @@ set -e
 # Deploy script for configuring the imported Drupal site
 # including the AI Agent settings and re-indexing site content.
 #
-# Usage: ./deploy.sh [target_domain]
+# Usage: ./config-import.sh [target_domain]
 
 # Default to Production domain if no argument is provided
 TARGET_DOMAIN=${1:-"blog.trelvik.net"}

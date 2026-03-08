@@ -138,6 +138,13 @@ When you make structural changes to the site via the running Dev container (e.g.
    docker build -t ttrelvik/drupal-core:latest .
    ```
 
+### Configuration Import & Post-Deployment (`config-import.sh`)
+The codebase includes `/app/config-import.sh` which handles syncing Drupal configuration, updating the AI agent system prompt, and re-indexing site content. This script must be executed **inside** the running Docker container, not from the host:
+
+```bash
+docker exec -it $(docker ps -qf name=drupal-dev_drupal) /app/config-import.sh
+```
+
 ---
 
 ## 🔄 Maintenance & Updates
