@@ -175,9 +175,10 @@ docker compose -f docker-compose.tools.yml run --rm composer composer update dru
 
 After making changes to the `composer.lock` utilizing the tools container, you **must** perform the following steps to deploy the update:
 
-1. **Rebuild the image with a new tag:** (e.g., `alpha11` or `beta1`)
+1. **Rebuild and push the image with a new tag:** (e.g., `alpha11` or `beta1`)
    ```bash
    docker build -t ttrelvik/drupal-core:beta1 .
+   docker push ttrelvik/drupal-core:beta1
    ```
 
 2. **Deploy the stack:**
