@@ -48,6 +48,13 @@ if (file_exists($secret_path)) {
 // A path outside the web root, but within the persistent volume.
 $settings['config_sync_directory'] = '../config/sync';
 
+// --- Error Reporting ---
+// Hide all error messages from the display.
+$config['system.logging']['error_level'] = 'hide';
+
+// Ensure errors are still sent to the system logs.
+ini_set('log_errors', 'On');
+
 // --- Trusted Host Patterns ---
 $trusted_hosts = [];
 
