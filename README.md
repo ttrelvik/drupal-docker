@@ -80,14 +80,15 @@ docker stack deploy -c docker-compose.yml drupal
 *Access:* `https://blog.trelvik.net`
 
 ### 4. Deploying (Development)
-The development stack runs isolated from production but mirrors its architecture.
+The development stack runs isolated from production but mirrors its architecture. Use the `deploy-dev.sh` script to build, push, and deploy a new image to the development stack from the `midna` host.
+
 ```bash
-# 1. Create Dev Secrets
+# 1. Create Dev Secrets (First time only)
 docker secret create drupal-dev_postgres_password ./dev_secret_file
 # (API keys can be shared or separate)
 
-# 2. Deploy Dev Stack
-docker stack deploy -c docker-compose.dev.yml drupal-dev
+# 2. Build, Push, and Deploy to Dev Stack
+./deploy-dev.sh [tag]
 ```
 *Access:* `https://dev-blog.trelvik.net`
 
