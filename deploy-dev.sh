@@ -48,6 +48,15 @@ sed -i -E "s|image: $IMAGE_NAME:.*|image: $FULL_IMAGE|" docker-compose.dev.yml
 # Deploy Dev Stack
 docker stack deploy -c docker-compose.dev.yml drupal-dev
 
+echo "Waiting for the new container to start before running Drush commands..."
+sleep 10
+
+echo "Running database updates..."
+docker exec -it $(docker ps -qf name=drupal-dev_drupal) drush updb -y
+
+echo "Clearing cache..."
+docker exec -it $(docker ps -qf name=drupal-dev_drupal) drush cr
+
 echo "========================================"
-echo -e "\033[1;32m✅ Dev stack updated on Midna. To deploy to Prod, manually update docker-compose.prod.yml and redeploy.\033[0m"
+echo -e "\033[1;32m✅ Dev stack updated on Midna. To deploy to Prod, manually update docker-compose.yml and redeploy.\033[0m"
 echo "========================================"
