@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c62c7b0648f68eb9bcec07f91442489",
+    "content-hash": "6173d0bf7ef3156bf202d8777581305d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2742,17 +2742,17 @@
         },
         {
             "name": "drupal/drupal_cms_helper",
-            "version": "2.0.4",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drupal_cms_helper.git",
-                "reference": "2.0.4"
+                "reference": "2.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.0.4.zip",
-                "reference": "2.0.4",
-                "shasum": "9153f0e758f9f6b71f08dc8a4ac0c712cd01b8d7"
+                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.1.0.zip",
+                "reference": "2.1.0",
+                "shasum": "e67276ce631e6502e2c3ea48f39d22a84beaad03"
             },
             "require": {
                 "drupal/core": "^11.3"
@@ -2760,8 +2760,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.4",
-                    "datestamp": "1773351542",
+                    "version": "2.1.0",
+                    "datestamp": "1774097357",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3067,44 +3067,33 @@
         },
         {
             "name": "drupal/eca",
-            "version": "3.0.11",
+            "version": "3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eca.git",
-                "reference": "3.0.11"
+                "reference": "3.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eca-3.0.11.zip",
-                "reference": "3.0.11",
-                "shasum": "88eec94b1ebe2074bbf3b6da8a612c151b48d26e"
+                "url": "https://ftp.drupal.org/files/projects/eca-3.1.0.zip",
+                "reference": "3.1.0",
+                "shasum": "c75edf48499fca80854f0efc7b4287b4f613ccf8"
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.1",
-                "drupal/core": "^11.2",
-                "drupal/modeler_api": "^1.0",
+                "drupal/core": "^11.3 || ^12.0",
+                "drupal/modeler_api": "^1.1",
                 "ext-json": "*",
                 "php": ">=8.3"
             },
-            "conflict": {
-                "drush/drush": "<12.5.1"
-            },
             "require-dev": {
-                "drupal/ai": "1.2.x-dev",
-                "drupal/ai_agents": "1.2.x-dev",
-                "drupal/entity_reference_revisions": "^1.12",
-                "drupal/inline_entity_form": "^3.0",
-                "drupal/modeler_api": "*",
-                "drupal/paragraphs": "^1.18",
-                "drupal/project_browser": "^2.0",
-                "drupal/token": "^1.15",
-                "drupal/webform": "^6.3"
+                "drupal/modeler_api": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.11",
-                    "datestamp": "1773134456",
+                    "version": "3.1.0",
+                    "datestamp": "1774278887",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3251,20 +3240,20 @@
         },
         {
             "name": "drupal/gemini_provider",
-            "version": "1.0.1-rc1",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gemini_provider.git",
-                "reference": "1.0.1-rc1"
+                "reference": "1.0.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gemini_provider-1.0.1-rc1.zip",
-                "reference": "1.0.1-rc1",
-                "shasum": "ad28599a4e3227ba1e46bd71eca307a9e05882d1"
+                "url": "https://ftp.drupal.org/files/projects/gemini_provider-1.0.1.zip",
+                "reference": "1.0.1",
+                "shasum": "51fd7744b52cffdc163a732872fca0e420e1c572"
             },
             "require": {
-                "drupal/ai": "^1.1",
+                "drupal/ai": "^1.2",
                 "drupal/core": "^10 || ^11",
                 "drupal/key": "*",
                 "google-gemini-php/client": "^2.7"
@@ -3275,8 +3264,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.1-rc1",
-                    "datestamp": "1772652785",
+                    "version": "1.0.1",
+                    "datestamp": "1774173695",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -4036,17 +4025,17 @@
         },
         {
             "name": "drupal/menu_link_attributes",
-            "version": "1.6.0",
+            "version": "1.7.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/menu_link_attributes.git",
-                "reference": "8.x-1.6"
+                "reference": "8.x-1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.6.zip",
-                "reference": "8.x-1.6",
-                "shasum": "638c87f01477ef5cbb44f6c84b763b1fef6ca1e6"
+                "url": "https://ftp.drupal.org/files/projects/menu_link_attributes-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "ae473541208cbe18130cb4b75104b55a9b80d073"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11"
@@ -4054,8 +4043,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.6",
-                    "datestamp": "1765101539",
+                    "version": "8.x-1.7",
+                    "datestamp": "1774255144",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4167,26 +4156,27 @@
         },
         {
             "name": "drupal/modeler_api",
-            "version": "1.0.7",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/modeler_api.git",
-                "reference": "1.0.7"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/modeler_api-1.0.7.zip",
-                "reference": "1.0.7",
-                "shasum": "5ea28a231cd66c9737eb7fd9d02e94a152f97213"
+                "url": "https://ftp.drupal.org/files/projects/modeler_api-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "562ac7585e35a4da58ac3ed8998a2a5267d80ff0"
             },
             "require": {
-                "drupal/core": "^10.4 || ^11"
+                "drupal/core": "^11.3 || ^12.0",
+                "php": ">=8.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.7",
-                    "datestamp": "1773132747",
+                    "version": "1.1.0",
+                    "datestamp": "1774278612",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -11277,8 +11267,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "drupal/ai_vdb_provider_postgres": 15,
-        "drupal/gemini_provider": 10
+        "drupal/ai_vdb_provider_postgres": 15
     },
     "prefer-stable": true,
     "prefer-lowest": false,
