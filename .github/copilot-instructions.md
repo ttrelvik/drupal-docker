@@ -24,11 +24,9 @@ Developer workflows & STRICT COMMAND RULES:
   ```bash
   docker exec -it $(docker ps -qf name=drupal-dev_drupal) drush <command>
   ```
-- **Building and Deploying**: Ensure instructions leverage the standard Swarm deployment mechanisms rather than local compose builds. For development deployments on the `midna` host, ALWAYS use the `deploy-dev.sh` automation script:
-  ```bash
-  ./deploy-dev.sh [tag]
-  ```
-  (This script handles git branch checks, image tagging, Docker build/push, and Swarm stack deployment).
+- **Building and Deploying**: Ensure instructions leverage the standard Swarm deployment mechanisms rather than local compose builds. 
+  - For **Development** deployments on the `midna` host, ALWAYS use: `./deploy-dev.sh [tag]` (handles git branch checks, image tagging, Docker build/push, Swarm deployment, and DB updates).
+  - For **Production** deployments/refreshes, ALWAYS use: `./refresh-prod.sh` (handles maintenance mode toggling, wait-for-convergence swarm stack deploy, plus drush db updates/cache clear). Do not manually run `docker stack deploy` for production.
 - **Viewing Logs**: Check the logs against the Swarm service, rather than the compose container:
   ```bash
   docker service logs -f drupal-dev_drupal

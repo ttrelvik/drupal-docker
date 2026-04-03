@@ -74,8 +74,8 @@ docker secret create drupal_postgres_password ./secret_file
 docker secret create gemini_api_key ./key_file
 docker secret create openai_api_key ./key_file
 
-# 2. Deploy Stack
-docker stack deploy -c docker-compose.yml drupal
+# 2. Deploy/Refresh Stack
+./refresh-prod.sh
 ```
 *Access:* `https://blog.trelvik.net`
 
@@ -182,16 +182,9 @@ After making changes to the `composer.lock` utilizing the tools container, you *
    docker push ttrelvik/drupal-core:beta1
    ```
 
-2. **Deploy the stack:**
-   Update your compose file to reference the new tag if necessary, then run:
+2. **Deploy the stack & Run Updates (Production):**
+   Update your `docker-compose.yml` file to reference the new tag if necessary. Then, run the production refresh script. This script safely orchestrates maintenance mode, blocking Swarm deployments, database updates, and cache clearing:
    ```bash
-   docker stack deploy -c docker-compose.yml drupal
+   ./refresh-prod.sh
    ```
-
-3. **Database Updates & Cache Rebuild:**
-   Immediately after the new container is running, execute database updates and rebuild the cache inside the running container to ensure the new code matches the database schema:
-   ```bash
-   docker exec -it $(docker ps -qf name=drupal_drupal) drush updb -y
-   docker exec -it $(docker ps -qf name=drupal_drupal) drush cr
-   ```
-   *(For development environments, target the `drupal-dev_drupal` container instead).*
+   *(For development environments, use `./deploy-dev.sh [tag]` as documented above, which handles the build, push, deployment, and DB updates).*
