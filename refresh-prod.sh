@@ -50,8 +50,8 @@ echo "========================================"
 echo " Deploying Stack"
 echo "========================================"
 
-# Deploy Production Stack
-docker stack deploy -c docker-compose.yml drupal
+# Deploy Production Stack and wait for convergence
+docker stack deploy -c docker-compose.yml drupal --detach=false
 
 echo "========================================"
 echo " Waiting for Container & Drush"
@@ -63,8 +63,9 @@ RETRY_COUNT=0
 NEW_CONTAINER_ID=""
 
 while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
-    # Again, grabbing the first ID
-    NEW_CONTAINER_ID=$(docker ps -qf name=drupal_drupal | head -n 1)
+    # Always grab the first matching container. Since we waited for convergence,
+    # the old container is gone and this will be the currently running one.
+    NEW_CONTAINER_ID=$(docker ps -qf name=drupal_drupal -f status=running | head -n 1)
     
     if [ ! -z "$NEW_CONTAINER_ID" ]; then
         # Container is up, now check if drush is ready
