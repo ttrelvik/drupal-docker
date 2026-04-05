@@ -5,15 +5,28 @@
 
 set -e
 
-# Require a version tag argument
-if [ -z "$1" ]; then
+NO_BUILD=false
+TAG=""
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --nobuild) NO_BUILD=true; shift ;;
+        *)
+            if [ -n "$TAG" ]; then
+                echo "Error: Multiple version tags provided."
+                exit 1
+            fi
+            TAG="$1"; shift ;;
+    esac
+done
+
+if [ -z "$TAG" ]; then
   echo "Error: Version tag is required."
-  echo "Usage: $0 <tag>"
+  echo "Usage: $0 [--nobuild] <tag>"
   echo "Example: $0 beta1"
+  echo "Example: $0 --nobuild beta7"
   exit 1
 fi
-
-TAG="$1"
 
 # Identify current branch
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
@@ -30,17 +43,31 @@ fi
 IMAGE_NAME="ttrelvik/drupal-core"
 FULL_IMAGE="$IMAGE_NAME:$TAG"
 
-echo "========================================"
-echo " Starting Build & Push: $FULL_IMAGE"
-echo "========================================"
+if [ "$NO_BUILD" = true ]; then
+  echo "========================================"
+  echo " Verifying Image Exists: $FULL_IMAGE"
+  echo "========================================"
+  if ! docker pull "$FULL_IMAGE"; then
+      echo -e "\033[1;31mError: Image $FULL_IMAGE could not be found/pulled.\033[0m"
+      echo "No changes were made to the dev environment."
+      exit 1
+  fi
+else
+  echo "========================================"
+  echo " Starting Build & Push: $FULL_IMAGE"
+  echo "========================================"
 
-# Docker Build & Push
-docker build -t "$FULL_IMAGE" .
-docker push "$FULL_IMAGE"
+  # Docker Build & Push
+  docker build -t "$FULL_IMAGE" .
+  docker push "$FULL_IMAGE"
+fi
 
 echo "========================================"
 echo " Updating Dev Stack"
 echo "========================================"
+
+# Capture current image to allow for reversion
+PREVIOUS_IMAGE=$(grep -oE "image: $IMAGE_NAME:.*" docker-compose.dev.yml | awk '{print $2}' || true)
 
 # Update docker-compose.dev.yml
 sed -i -E "s|image: $IMAGE_NAME:.*|image: $FULL_IMAGE|" docker-compose.dev.yml
@@ -84,6 +111,13 @@ done
 if [ $RETRY_COUNT -eq $MAX_RETRIES ]; then
     echo -e "\033[1;31mError: Timed out waiting for the container and Drush to become ready.\033[0m"
     echo "Please check the container logs manually."
+    if [ -n "$PREVIOUS_IMAGE" ]; then
+        echo "Attempting to revert to previous image ($PREVIOUS_IMAGE)..."
+        sed -i -E "s|image: $IMAGE_NAME:.*|image: $PREVIOUS_IMAGE|" docker-compose.dev.yml
+        # Deploy with the old image but do not block indefinitely since we are already failing
+        docker stack deploy -c docker-compose.dev.yml drupal-dev
+        echo "Revert deployment initiated."
+    fi
     exit 1
 fi
 
