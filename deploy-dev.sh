@@ -69,6 +69,19 @@ echo "========================================"
 # Capture current image to allow for reversion
 PREVIOUS_IMAGE=$(grep -oE "image: $IMAGE_NAME:.*" docker-compose.dev.yml | awk '{print $2}' || true)
 
+# Maintenance Mode Toggle (Pre-Deploy)
+echo "Evaluating container status..."
+# Grab the very first container ID matching the name, in case multiple exist during a rolling start
+EXISTING_CONTAINER=$(docker ps -qf name=drupal-dev_drupal | head -n 1)
+
+if [ ! -z "$EXISTING_CONTAINER" ]; then
+    echo "Putting existing site into maintenance mode..."
+    docker exec -it "$EXISTING_CONTAINER" drush state:set system.maintenance_mode 1 -y
+    docker exec -it "$EXISTING_CONTAINER" drush cr
+else
+    echo "No running drupal container found. Skipping maintenance mode setup."
+fi
+
 # Update docker-compose.dev.yml
 sed -i -E "s|image: $IMAGE_NAME:.*|image: $FULL_IMAGE|" docker-compose.dev.yml
 
@@ -123,6 +136,9 @@ fi
 
 echo "Running database updates..."
 docker exec -it "$NEW_CONTAINER_ID" drush updb -y
+
+echo "Taking site out of maintenance mode..."
+docker exec -it "$NEW_CONTAINER_ID" drush state:set system.maintenance_mode 0 -y
 
 echo "Clearing cache..."
 docker exec -it "$NEW_CONTAINER_ID" drush cr
