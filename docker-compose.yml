@@ -2,7 +2,7 @@ services:
   drupal:
     # Use the custom Drupal CMS image with pre-installed dependencies
     # pulled from Docker Hub:
-    image: ttrelvik/drupal-core:beta13
+    image: ttrelvik/drupal-core:beta14
     volumes:
       # Mount the entire sites/default directory for persistence
       - sites_default:/app/web/sites/default
@@ -67,7 +67,6 @@ services:
 volumes:
   sites_default:
   db_data:
-
 
 secrets:
   drupal_postgres_password:

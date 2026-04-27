@@ -1292,6 +1292,14 @@
                 {
                     "name": "yautja_cetanu",
                     "homepage": "https://www.drupal.org/user/626050"
+                },
+                {
+                    "name": "joshua1234511",
+                    "homepage": "https://www.drupal.org/user/3362218"
+                },
+                {
+                    "name": "ahmad khader",
+                    "homepage": "https://www.drupal.org/user/3727855"
                 }
             ],
             "description": "AI module for Drupal",
@@ -1627,17 +1635,17 @@
         },
         {
             "name": "drupal/ai_vdb_provider_postgres",
-            "version": "1.0.0-alpha2",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_vdb_provider_postgres.git",
-                "reference": "1.0.0-alpha2"
+                "reference": "1.0.0-alpha3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_vdb_provider_postgres-1.0.0-alpha2.zip",
-                "reference": "1.0.0-alpha2",
-                "shasum": "ae3c99c0d103276f70ebadeb8d7123c0611e3d8c"
+                "url": "https://ftp.drupal.org/files/projects/ai_vdb_provider_postgres-1.0.0-alpha3.zip",
+                "reference": "1.0.0-alpha3",
+                "shasum": "afad768a2bce5b7466b425a079af576d1b774d9a"
             },
             "require": {
                 "drupal/ai": "^1.1@beta",
@@ -1648,8 +1656,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha2",
-                    "datestamp": "1748339262",
+                    "version": "1.0.0-alpha3",
+                    "datestamp": "1776940584",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -1668,6 +1676,10 @@
                 {
                     "name": "marcus_johansson",
                     "homepage": "https://www.drupal.org/user/385947"
+                },
+                {
+                    "name": "rodrigoferreira19",
+                    "homepage": "https://www.drupal.org/user/3832899"
                 }
             ],
             "description": "Enables the use of a Postgres (pgvector) VDB in the AI module.",
@@ -3832,17 +3844,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.13",
+            "version": "7.0.14",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.13"
+                "reference": "7.0.14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.13.zip",
-                "reference": "7.0.13",
-                "shasum": "918d001248b4a394eb1c4e097e7d243959280489"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.14.zip",
+                "reference": "7.0.14",
+                "shasum": "b3a4025d1fcad688e716decffe808ad09b426931"
             },
             "require": {
                 "drupal/core": "^10.1 || ^11"
@@ -3850,8 +3862,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.13",
-                    "datestamp": "1773055628",
+                    "version": "7.0.14",
+                    "datestamp": "1777307887",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4417,17 +4429,17 @@
         },
         {
             "name": "drupal/redirect",
-            "version": "1.12.0",
+            "version": "1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/redirect.git",
-                "reference": "8.x-1.12"
+                "reference": "8.x-1.13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.12.zip",
-                "reference": "8.x-1.12",
-                "shasum": "1cdee11356a25b9f9a10329aec0eeb293e0023de"
+                "url": "https://ftp.drupal.org/files/projects/redirect-8.x-1.13.zip",
+                "reference": "8.x-1.13",
+                "shasum": "57185d3b9d9e2a549584b903eab838aeaa72a218"
             },
             "require": {
                 "drupal/core": "^10 || ^11"
@@ -4435,8 +4447,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.12",
-                    "datestamp": "1756419163",
+                    "version": "8.x-1.13",
+                    "datestamp": "1777006978",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5028,17 +5040,17 @@
         },
         {
             "name": "drupal/trash",
-            "version": "3.0.26",
+            "version": "3.0.27",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/trash.git",
-                "reference": "3.0.26"
+                "reference": "3.0.27"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/trash-3.0.26.zip",
-                "reference": "3.0.26",
-                "shasum": "eae7737d5b1223d65ca70a4ff15a06982863b8f0"
+                "url": "https://ftp.drupal.org/files/projects/trash-3.0.27.zip",
+                "reference": "3.0.27",
+                "shasum": "e68735bf5d8012f8795e7d74b02d5eda0077900f"
             },
             "require": {
                 "drupal/core": "^10.3 | ^11"
@@ -5057,8 +5069,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.26",
-                    "datestamp": "1774733816",
+                    "version": "3.0.27",
+                    "datestamp": "1777059105",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6381,16 +6393,16 @@
         },
         {
             "name": "mck89/peast",
-            "version": "v1.17.5",
+            "version": "v1.17.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mck89/peast.git",
-                "reference": "e19a8bd896b7f04941a38fd38a140c9a6531c84f"
+                "reference": "b8b4184b1e6912669f9af155caef9050509d9f18"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mck89/peast/zipball/e19a8bd896b7f04941a38fd38a140c9a6531c84f",
-                "reference": "e19a8bd896b7f04941a38fd38a140c9a6531c84f",
+                "url": "https://api.github.com/repos/mck89/peast/zipball/b8b4184b1e6912669f9af155caef9050509d9f18",
+                "reference": "b8b4184b1e6912669f9af155caef9050509d9f18",
                 "shasum": ""
             },
             "require": {
@@ -6403,7 +6415,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.17.5-dev"
+                    "dev-master": "1.17.6-dev"
                 }
             },
             "autoload": {
@@ -6424,9 +6436,9 @@
             "description": "Peast is PHP library that generates AST for JavaScript code",
             "support": {
                 "issues": "https://github.com/mck89/peast/issues",
-                "source": "https://github.com/mck89/peast/tree/v1.17.5"
+                "source": "https://github.com/mck89/peast/tree/v1.17.6"
             },
-            "time": "2026-03-15T10:47:07+00:00"
+            "time": "2026-04-24T08:04:05+00:00"
         },
         {
             "name": "mtownsend/xml-to-array",
@@ -9734,7 +9746,7 @@
         },
         {
             "name": "symfony/polyfill-php80",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php80.git",
@@ -9794,7 +9806,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php80/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php80/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -9818,7 +9830,7 @@
         },
         {
             "name": "symfony/polyfill-php81",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php81.git",
@@ -9874,7 +9886,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php81/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php81/tree/v1.37.0"
             },
             "funding": [
                 {
@@ -9898,7 +9910,7 @@
         },
         {
             "name": "symfony/polyfill-php83",
-            "version": "v1.36.0",
+            "version": "v1.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php83.git",
@@ -9954,7 +9966,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php83/tree/v1.36.0"
+                "source": "https://github.com/symfony/polyfill-php83/tree/v1.37.0"
             },
             "funding": [
                 {
