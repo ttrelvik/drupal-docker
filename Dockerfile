@@ -1,6 +1,6 @@
 # Stage 1: Build the application using a PHP base to ensure OS consistency.
 # When updating the PHP version here, be sure to also update it in stage 2.
-FROM php:8.4-fpm-bookworm AS builder
+FROM php:8.5-fpm-bookworm AS builder
 
 # Set the working directory for the build.
 WORKDIR /app
@@ -29,7 +29,7 @@ COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader
 
 # Stage 2: Build the production environment base. This is kept separate for clarity and caching.
-FROM php:8.4-fpm-bookworm AS drupal_app_base
+FROM php:8.5-fpm-bookworm AS drupal_app_base
 
 # Set environment variables for the application.
 ENV PATH="/app/vendor/bin:$PATH"
