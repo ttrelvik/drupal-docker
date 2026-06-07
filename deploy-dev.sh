@@ -31,13 +31,13 @@ fi
 # Identify current branch
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 
-# Git Safety Check: If not on main, prefix tag with 'dev-'
-if [ "$CURRENT_BRANCH" != "main" ]; then
-  echo -e "\033[1;33mWARNING: You are not on the 'main' branch (current branch: $CURRENT_BRANCH).\033[0m"
-  if [[ "$TAG" != dev-* ]]; then
-    TAG="dev-$TAG"
-    echo -e "\033[1;33mPrefixing tag with 'dev-': New tag is $TAG\033[0m"
-  fi
+if [[ "$CURRENT_BRANCH" != "main" && ! "$CURRENT_BRANCH" =~ ^renovate/ ]]; then
+    echo "Notice: Building on feature branch '$CURRENT_BRANCH'. Prepending 'dev-' to target tags."
+    if [[ "$TAG" != dev-* ]]; then
+        TAG="dev-$TAG"
+    fi
+else
+    echo "Notice: Core branch or automated upgrade loop detected. Preserving literal tag: $TAG"
 fi
 
 IMAGE_NAME="ttrelvik/drupal-core"
