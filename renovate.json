@@ -9,6 +9,13 @@
         "php"
       ],
       "allowedVersions": "< 8.5.0"
+    },
+    {
+      "matchManagers": [
+        "composer"
+      ],
+      "groupName": "Composer Suite",
+      "groupSlug": "composer-packages"
     }
   ]
 }
