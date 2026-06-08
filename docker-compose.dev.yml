@@ -33,6 +33,7 @@ services:
         - "traefik.http.routers.drupal_dev.entrypoints=https" # renamed for dev
         - "traefik.http.routers.drupal_dev.tls=true" # renamed for dev
         - "traefik.http.routers.drupal_dev.tls.certresolver=myresolver" # renamed for dev
+        - "traefik.http.routers.drupal_dev.middlewares=sso-auth@swarm" # for dev only
         - "traefik.http.services.drupal_dev.loadbalancer.server.port=80" # renamed for dev
         ### Commented out for dev: ###
         # # --- Dynamic Redirect Router using .env variables ---
@@ -67,7 +68,6 @@ services:
 volumes:
   sites_default:
   db_data:
-
 
 secrets:
   drupal-dev_postgres_password:
