@@ -73,7 +73,7 @@
         "drupal/selective_better_exposed_filters": "^3.0",
         "drupal/svg_image": "^3.2",
         "drupal/symfony_mailer_lite": "^2.0",
-        "drupal/tagify": "^1.2",
+        "drupal/tagify": "^2.0",
         "drupal/token": "^1.17",
         "drupal/trash": "^3.0",
         "drush/drush": "^13",
