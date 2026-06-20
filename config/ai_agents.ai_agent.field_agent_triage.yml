@@ -47,6 +47,7 @@ tool_settings:
 orchestration_agent: false
 triage_agent: true
 max_loops: 15
+max_loops_message: ''
 default_information_tools: "list_field_types:\r\n  label: 'List of all field types'\r\n  description: 'These are all field types you can set'\r\n  tool: 'ai_agent:list_field_types'\r\n  parameters:\r\n    simple_representation: true\r\nlist_storage_fields:\r\n  label: 'List of entity types and storages'\r\n  description: 'The list of entity type and field storages'\r\n  tool: 'ai_agent:get_entity_type_field_storage'\r\n  parameters: {  }\r\nlist_entity_types_and_bundles:\r\n  label: 'List of entity types and bundles'\r\n  description: 'The current list of entity types and bundles on this system'\r\n  tool: 'ai_agent:list_bundles'\r\n  parameters: {  }\r\n  available_on_loop:\r\n    - 1\r\nlist_field_view_types:\r\n  label: 'List of view display type'\r\n  description: 'The current list of view display types on this system'\r\n  tool: 'ai_agent:list_field_display_types'\r\n  parameters:\r\n    type_of_display: display\r\nlist_field_form_types:\r\n  label: 'List of form display type'\r\n  description: 'The current list of form display types on this system'\r\n  tool: 'ai_agent:list_field_display_types'\r\n  parameters:\r\n    type_of_display: form\r\n"
 tool_usage_limits:
   'ai_agent:get_config_schema':
@@ -248,3 +249,4 @@ exclude_users_role: false
 masquerade_roles: {  }
 structured_output_enabled: false
 structured_output_schema: ''
+hostname_filter_disabled: false

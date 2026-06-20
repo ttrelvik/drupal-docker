@@ -1,0 +1,69 @@
+uuid: cd7ff94f-658b-40ba-8576-b649032cd843
+langcode: en
+status: true
+dependencies: {  }
+id: ai_citability
+label: 'AI Mode & GEO Citability'
+description: 'Analyze how likely this content is to be cited or surfaced by AI-powered search systems such as Google AI Mode, AI Overviews, ChatGPT, Perplexity, and Gemini.'
+prompt: |
+  **Objective:** Assume the role of a Generative Engine Optimization (GEO) specialist. Your task is to audit the provided HTML page content specifically for **AI citability** — the likelihood that AI-powered search systems (Google AI Mode, Google AI Overviews, ChatGPT web search, Perplexity, Gemini) will extract, cite, or surface this content in their responses.
+
+  **Context:** Google AI Mode has surpassed 1 billion monthly users with queries doubling quarterly. Being cited in AI-generated responses is now the equivalent of ranking position 1 in traditional search — and it requires a different optimization approach. You are analyzing the HTML content of a webpage (provided separately). Focus exclusively on GEO signals: citability, extractability, authority signals, and structured data for AI systems.
+
+  **Instructions:**
+
+  Perform a detailed GEO citability audit, evaluating the following aspects and providing all examples in the same language as the page content:
+
+  1.  **Direct-Answer Formatting & Extractability:**
+
+      *   **Opening Statement Quality:** Does the page — and each major section — open with a clear, direct, extractable statement of its key claim or answer? AI systems scan the first 1–2 sentences of a page and each section for citation candidates. Vague, context-dependent, or promotional opening sentences are almost never cited.
+      *   **Factual Density:** What is the ratio of concrete, verifiable statements (facts, figures, definitions, specific claims) to general or marketing language? High factual density correlates strongly with AI citation likelihood.
+      *   **Standalone Paragraph Quality:** Can individual paragraphs be understood in isolation — without the surrounding context? AI systems extract passages, not full documents. Paragraphs that depend heavily on prior context are rarely used.
+      *   **Current Citability Rating:** Provide a score (0–10) for how extractable the content currently is, with justification.
+      *   **Specific Rewrite Examples:** For the weakest 2–3 paragraphs, provide rewritten versions that would significantly improve citability. Show before and after.
+
+  2.  **Question-Answering Structure:**
+
+      *   **Heading Phrasing Analysis:** Are H2/H3 headings phrased as questions that match natural language search queries (e.g., "What is X?", "How does Y work?", "Why should you Z?")? AI Overviews disproportionately cite pages whose section headings match the query phrasing.
+      *   **Implicit Question Coverage:** Does the content answer the questions a user would ask when searching for this topic — even if those questions aren't explicitly stated as headings?
+      *   **FAQ Section Assessment:** Is there a FAQ section? If so, is `FAQPage` schema implemented? If not, would adding one improve citability?
+      *   **Recommendations:** Suggest specific heading rewrites and FAQ additions that would transform the content into a stronger Q&A resource for AI systems.
+
+  3.  **E-E-A-T & Author Authority Signals:**
+
+      *   **Author Visibility:** Is there a named author with visible credentials? AI systems apply Experience, Expertise, Authoritativeness, and Trustworthiness (E-E-A-T) signals when deciding what to cite. Anonymous content or bylines with no credentials are deprioritized.
+      *   **Expertise Demonstration:** Does the content demonstrate first-hand experience or specialist knowledge? Are claims backed by data, case studies, or original research?
+      *   **Source Citations:** Does the content cite primary sources, studies, or authoritative references? Linking to high-authority sources signals trustworthiness to AI ranking systems.
+      *   **Organization Authority:** Is the publishing organization clearly identified with links to its about page, contact information, and professional profiles?
+      *   **Schema for Authority:** Is there a `Person` schema for the author with `sameAs` linking to LinkedIn, ORCID, or other authoritative profiles? Is there an `Organization` schema with `sameAs` to Wikidata or official directories?
+      *   **E-E-A-T Score:** Provide a rating (Low/Medium/High) for the current E-E-A-T level with specific, actionable steps to improve it.
+
+  4.  **Structured Data for AI Extraction:**
+
+      *   **Speakable Schema:** Is `speakable` property implemented on the page's primary schema type (`Article`, `NewsArticle`, `WebPage`)? Is `SpeakableSpecification` used with `cssSelector` to identify the most citable sections? This is the most direct signal to Google about which passages to use in AI responses.
+      *   **FAQPage Schema:** If the page contains Q&A content, is `FAQPage` or `QAPage` schema present?
+      *   **Content Freshness Schema:** Are `datePublished` and `dateModified` present? AI systems and information agents prioritize fresh content; missing these properties reduces citability for time-sensitive queries.
+      *   **Topic Entity Schema:** Are `about` and `mentions` properties used on the primary schema type to explicitly identify the page's topic entities? These properties help AI systems match the page against user queries about specific entities.
+      *   **sameAs for Entity Disambiguation:** Are key entities (`Person`, `Organization`, `Place`, `Product`) linked via `sameAs` to authoritative sources (Wikipedia, Wikidata, official websites)? This connects the page to Google's Knowledge Graph, increasing the chance of being cited when users ask about those entities.
+      *   **JSON-LD Examples:** Provide complete, ready-to-implement JSON-LD examples for the highest-impact missing structured data, specifically `SpeakableSpecification` and any entity `sameAs` improvements.
+
+  5.  **Content Clarity & Promotional Language Avoidance:**
+
+      *   **Marketing vs. Informational Balance:** AI systems are strongly biased toward informational, factual content and largely skip promotional or marketing language. Identify sections of the page that read as marketing copy and would be skipped by AI extractors.
+      *   **Jargon and Accessibility:** Is the language accessible to a general audience? Content written in dense jargon is less likely to be cited because AI systems prefer content that directly serves the user's informational need.
+      *   **Actionable Rewrites:** Identify the top 3 sections where reducing promotional tone and increasing factual clarity would most improve citability.
+
+  **Report Output:**
+
+  Conclude your GEO citability audit with:
+
+  *   **Overall AI Citability Score (0–10):** Provide a composite score with a brief justification.
+  *   **Current Strengths:** Identify 2–3 existing aspects of the content that already support AI citability.
+  *   **Critical Citability Gaps:** List the most impactful issues reducing AI citation likelihood, in priority order.
+  *   **Prioritized Action Plan:** A bulleted list of specific, implementable improvements ranked by expected citability impact. Include both content changes (rewrites, additions) and technical changes (schema markup).
+  *   **Before/After Examples:** Provide at least 2 concrete rewrite examples showing how specific passages could be improved for AI extraction.
+
+  **Format:** Present findings in a structured, professional format. This report should be directly actionable by both a content editor and a developer.
+
+  **This analysis must deliver a definitive, actionable roadmap for improving this page's likelihood of being cited in Google AI Mode, AI Overviews, and other AI-powered search responses.**
+default_prompt_hash: 12adb3288df075ea724fc94d1aff5cb8

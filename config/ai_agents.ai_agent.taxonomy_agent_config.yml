@@ -29,6 +29,7 @@ tool_settings:
 orchestration_agent: false
 triage_agent: true
 max_loops: 10
+max_loops_message: ''
 default_information_tools: "vocabularies:\r\n  label: Vocabularies\r\n  description: 'The existing Vocabularies on the system'\r\n  tool: 'ai_agent:list_config_entities'\r\n  parameters:\r\n    entity_type: taxonomy_vocabulary\r\n    amount: 0\r\n    fields:\r\n      - vid\r\n      - name\r\n      - description\r\n"
 tool_usage_limits:
   'ai_agent:get_field_values_and_context':
@@ -126,3 +127,4 @@ exclude_users_role: false
 masquerade_roles: {  }
 structured_output_enabled: false
 structured_output_schema: ''
+hostname_filter_disabled: false

@@ -18,7 +18,6 @@ module:
   announcements_feed: 0
   automated_cron: 0
   automatic_updates: 0
-  automatic_updates_extensions: 0
   autosave_form: 0
   better_exposed_filters: 0
   big_pipe: 0
@@ -45,7 +44,6 @@ module:
   eca_config: 0
   eca_content: 0
   eca_misc: 0
-  eca_modeller_bpmn: 0
   eca_render: 0
   eca_ui: 0
   eca_user: 0
@@ -55,7 +53,6 @@ module:
   file: 0
   filter: 0
   focal_point: 0
-  friendlycaptcha: 0
   gemini_provider: 0
   gin_toolbar: 0
   honeypot: 0

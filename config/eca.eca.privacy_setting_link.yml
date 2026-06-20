@@ -7,13 +7,16 @@ dependencies:
     - eca_config
     - eca_content
     - eca_user
+    - modeler_api
+third_party_settings:
+  modeler_api:
+    modeler_id: fallback
+    label: 'Show link to privacy settings'
 _core:
   default_config_hash: kFAslzRrMVj1lXfuTWHtJh9sqhNK6kzcMjroNwNmrjs
 id: privacy_setting_link
-modeller: bpmn_io
-label: 'Show link to privacy settings'
-version: 1.0.0
 weight: 0
+template: null
 events:
   Event_save_config:
     plugin: 'config:save'
@@ -31,69 +34,69 @@ conditions:
     plugin: eca_scalar
     configuration:
       negate: false
-      case: false
       left: '[config_name]'
       right: klaro.klaro_app.
       operator: beginswith
       type: value
+      case: false
   Flow_enabled:
     plugin: eca_scalar
     configuration:
       negate: false
-      case: false
       left: '[config:status]'
       right: '1'
       operator: equal
       type: value
+      case: false
   Flow_was_disabled:
     plugin: eca_scalar
     configuration:
-      case: false
+      negate: true
       left: '[config_original:status]'
       right: '1'
       operator: equal
       type: value
-      negate: true
+      case: false
   Flow_disabled:
     plugin: eca_entity_field_value
     configuration:
-      case: false
+      negate: true
       expected_value: '1'
       field_name: enabled
       operator: equal
       type: value
-      negate: true
+      case: false
       entity: menulink
   Flow_not_required:
     plugin: eca_scalar
     configuration:
-      case: false
+      negate: true
       left: '[config:required]'
       right: '1'
       operator: equal
       type: value
-      negate: true
+      case: false
 gateways: {  }
 actions:
   Activity_and_1:
-    plugin: eca_void_and_condition
     label: AND
+    plugin: eca_void_and_condition
     configuration: {  }
     successors:
       -
         id: Activity_and_2
         condition: Flow_enabled
   Activity_and_2:
-    plugin: eca_void_and_condition
     label: AND
+    plugin: eca_void_and_condition
     configuration: {  }
     successors:
       -
         id: Activity_and_3
         condition: Flow_was_disabled
   Activity_and_3:
-    plugin: eca_switch_account
     label: 'Switch to user 1'
+    plugin: eca_switch_account
     configuration:
       user_id: '1'
     successors:
@@ -101,8 +104,8 @@ actions:
         id: Activity_load_menu_link
         condition: Flow_not_required
   Activity_load_menu_link:
-    plugin: eca_token_load_entity
     label: 'Load menu link'
+    plugin: eca_token_load_entity
     configuration:
       token_name: menulink
       from: properties
@@ -119,8 +122,8 @@ actions:
         id: Activity_enable_menu_link
         condition: Flow_disabled
   Activity_enable_menu_link:
-    plugin: eca_set_field_value
     label: 'Enable menu link'
+    plugin: eca_set_field_value
     configuration:
       field_name: enabled
       field_value: '1'

@@ -48,7 +48,6 @@
         "drupal/easy_email_theme": "^1.1",
         "drupal/eca": "^3.1",
         "drupal/focal_point": "^2.1",
-        "drupal/friendlycaptcha": "^1.1",
         "drupal/gemini_provider": "^1.0",
         "drupal/gin": "^5.0",
         "drupal/gin_toolbar": "^3.0",
@@ -76,9 +75,7 @@
         "drupal/tagify": "^2.0",
         "drupal/token": "^1.17",
         "drupal/trash": "^3.0",
-        "drush/drush": "^13",
-        "npm-asset/friendly-challenge": "^0.9.19",
-        "oomphinc/composer-installers-extender": "^2.0"
+        "drush/drush": "^13"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -94,8 +91,7 @@
             "phpstan/extension-installer": true,
             "dealerdirect/phpcodesniffer-composer-installer": true,
             "php-http/discovery": true,
-            "php-tuf/composer-integration": true,
-            "oomphinc/composer-installers-extender": true
+            "php-tuf/composer-integration": true
         },
         "sort-packages": true
     },
@@ -107,7 +103,6 @@
         },
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:npm-asset", "type:bower-asset"],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
@@ -137,7 +132,6 @@
                 "  * Remove the plugin that prints this message:",
                 "      composer remove drupal/core-project-message"
             ]
-        },
-        "installer-types": ["npm-asset", "bower-asset"]
+        }
     }
 }

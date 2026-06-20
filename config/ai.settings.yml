@@ -34,3 +34,7 @@ default_providers:
     provider_id: openai
     model_id: tts-1-hd
 default_vdb_provider: postgres
+request_timeout: 60
+allowed_hosts: {  }
+allowed_hosts_rewrite_links: false
+global_guardrails: {  }

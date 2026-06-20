@@ -9,10 +9,11 @@ system_prompt: "You are the AI Site Assistant for Tom Trelvik's professional por
 secured_system_prompt: null
 tools:
   'ai_search:rag_search': true
-tool_settings: null
+tool_settings: {  }
 orchestration_agent: true
 triage_agent: false
 max_loops: 3
+max_loops_message: ''
 default_information_tools: null
 tool_usage_limits:
   'ai_search:rag_search':
@@ -35,3 +36,4 @@ exclude_users_role: false
 masquerade_roles: {  }
 structured_output_enabled: null
 structured_output_schema: null
+hostname_filter_disabled: false

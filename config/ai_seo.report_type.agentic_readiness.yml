@@ -1,0 +1,73 @@
+uuid: b32669ee-e6ff-44bb-9143-e73f0b3a4783
+langcode: en
+status: true
+dependencies: {  }
+id: agentic_readiness
+label: 'Agentic Search Readiness'
+description: 'Analyze how discoverable and actionable this content is for Google information agents and agentic search — background AI agents that continuously scan the web for content matching user-defined criteria.'
+prompt: |
+  **Objective:** Assume the role of an Agentic Search Optimization specialist. Your task is to audit the provided HTML page content for **agentic search readiness** — how effectively this page will be discovered, parsed, and acted upon by Google's information agents and the broader ecosystem of AI agents that proactively scan the web on users' behalf.
+
+  **Context:** Google announced at I/O 2026 that information agents are launching for AI Pro/Ultra subscribers, operating as background agents that continuously monitor blogs, news sites, and social posts for content matching user-defined criteria, then send synthesized updates with actionable options. This represents a fundamental shift: content no longer only needs to perform well when a user actively searches — it needs to be structured so that autonomous agents can identify it as relevant, extract its meaning, and surface it proactively. This audit evaluates readiness for this new discovery paradigm.
+
+  **Instructions:**
+
+  Evaluate the following aspects of agentic search readiness and provide all examples in the same language as the page content:
+
+  1.  **Topic Signal Clarity (First-Contact Comprehension):**
+
+      *   **100-Word Topic Declaration:** Can an automated agent determine, within the first 100 words of the page, exactly what this content is about — including the specific topic, its relevance, and the key entities involved? Agents make relevance decisions in milliseconds. Delayed or ambiguous topic identification means the page is skipped.
+      *   **Primary Entity Identification:** Are the core entities (people, organizations, products, events, locations) that this content is about named clearly and early?
+      *   **Topic Specificity vs. Generality:** Is the topic defined specifically enough that an agent monitoring for a narrow subject (e.g., "Nordic B2B marketing trends Q2 2026") would recognize this page as a match? Generic content matches fewer agent criteria.
+      *   **Improvement Recommendations:** Provide specific rewrites for the opening paragraph and meta description that would maximize agent topic recognition.
+
+  2.  **Content Freshness & Temporal Signals:**
+
+      *   **datePublished & dateModified Schema:** Are both `datePublished` and `dateModified` present in the page's structured data? Information agents explicitly filter by content recency. A page without `dateModified` is treated as potentially stale and ranked lower for time-sensitive monitoring criteria.
+      *   **Temporal Language in Content:** Does the body text include clear temporal signals (publication date, event dates, "as of [period]", etc.)? Agents scanning for fresh perspectives on a topic use temporal language as a quality signal.
+      *   **Update Cadence Signals:** Is there any indication of how frequently this content is updated? Pages with visible revision histories or explicit freshness commitments ("Updated monthly") are treated more favorably by recency-sensitive agents.
+      *   **Action:** Flag specifically whether `datePublished` and `dateModified` are present in schema markup, and provide the correct JSON-LD if missing.
+
+  3.  **Schema Markup for Agent Topic Matching:**
+
+      *   **about Property:** Does the primary schema type (`Article`, `BlogPosting`, `NewsArticle`, `WebPage`) include an `about` property that explicitly names the page's central topic entity? The `about` property is the most direct machine-readable signal of what a page is about.
+      *   **mentions Property:** Does the schema include a `mentions` array listing all significant entities discussed on the page? This allows agents to match the page against monitoring criteria for any of those entities.
+      *   **Article Type Specificity:** Is the most specific applicable `Article` subtype used — `NewsArticle`, `BlogPosting`, `TechArticle`, `ScholarlyArticle`, `Report`? Specific types help agents correctly classify and route content.
+      *   **keywords Property:** Is the `keywords` property present on the schema with a representative set of topic terms? This provides a machine-readable summary of the page's topic space.
+      *   **JSON-LD Examples:** Provide complete, ready-to-implement JSON-LD for `about`, `mentions`, and `keywords` properties, using entities and terms extracted from the actual page content.
+
+  4.  **Machine Parseability & Technical Accessibility:**
+
+      *   **Server-Side Rendering:** Is the primary content of the page rendered server-side (present in the initial HTML response), or is it JavaScript-dependent? Agents crawl HTML; content rendered entirely client-side via JavaScript may not be parsed.
+      *   **Content-to-Noise Ratio:** What fraction of the HTML is actual content vs. navigation, advertising, boilerplate, and decorative elements? Agents extract meaning from content; high noise makes extraction less reliable.
+      *   **Structured Content Formatting:** Is the content organized with clear headings, lists, and tables where appropriate? Structured content is significantly easier for agents to parse and extract key facts from.
+      *   **Crawler Access:** Are there `robots.txt` directives or `<meta name="robots">` tags that would block AI crawlers (Googlebot, GPTBot, ClaudeBot, PerplexityBot)? Blocking AI crawlers is an explicit opt-out from agentic discovery.
+      *   **Page Load Performance:** Does the page load quickly? Agents have crawl budgets and deprioritize slow pages. Flag any obvious performance issues visible in the HTML (unoptimized images, render-blocking resources).
+
+  5.  **Actionability for Agentic Systems:**
+
+      *   **Clear Next Steps:** Agentic systems not only discover content but surface "actionable options" to users. Does the page include clear calls-to-action, contact information, booking options, or other actionable elements that an agent could present alongside the content summary?
+      *   **Contact & Booking Schema:** For service pages, are `ContactPoint`, `OpeningHoursSpecification`, or reservation-related schema properties present? Google's agentic booking features (launched at I/O 2026) use this data to offer direct action options.
+      *   **Author/Organization Contactability:** Is there a clear way to contact the author or organization? Agents surfacing content to users increasingly include contact affordances.
+
+  6.  **Feed & Syndication Discoverability:**
+
+      *   **RSS/Atom Feed:** Is there a discoverable RSS or Atom feed linked from the page or the site? Feeds are the traditional mechanism for agent-style content monitoring and remain relevant for agentic systems.
+      *   **Sitemap Reference:** Is the page discoverable via an XML sitemap? This ensures agents can find new content quickly after publication.
+      *   **Canonical URL Clarity:** Is a canonical URL clearly declared? Agents that discover duplicate content across multiple URLs consolidate to the canonical; an incorrect or missing canonical can cause the wrong version to be indexed and monitored.
+
+  **Report Output:**
+
+  Conclude your agentic readiness audit with:
+
+  *   **Agentic Readiness Score (0–10):** Composite score with brief justification across the six dimensions above.
+  *   **Critical Gaps:** The top 3–5 issues most likely to prevent agents from discovering or correctly matching this content.
+  *   **Prioritized Action Plan:** Specific, implementable changes ranked by impact. Separate into:
+      *   **Immediate (content/schema changes that can be made today)**
+      *   **Technical (development changes required)**
+  *   **JSON-LD Additions:** Provide complete, copy-paste-ready JSON-LD snippets for all missing schema properties identified in sections 2 and 3.
+
+  **Format:** Present findings in a structured, professional format. Both content editors and developers must be able to act on the recommendations without additional context.
+
+  **This audit must equip the team to prepare this content for the emerging agentic search paradigm — where AI agents proactively monitor and surface content on users' behalf.**
+default_prompt_hash: c6780753b2e2869f1c520e72376aef32

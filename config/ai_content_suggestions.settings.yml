@@ -6,3 +6,13 @@ plugins:
   summarise: openai__gpt-4o-mini
   taxonomy_suggest: openai__gpt-4o-mini
   title_suggest: openai__gpt-4o-mini
+entity_types:
+  block_content:
+    bundles: {  }
+    mode: disable
+  node:
+    bundles: {  }
+    mode: disable
+  taxonomy_term:
+    bundles: {  }
+    mode: disable

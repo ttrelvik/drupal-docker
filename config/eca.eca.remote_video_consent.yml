@@ -9,13 +9,16 @@ dependencies:
     - eca_config
     - eca_content
     - eca_user
+    - modeler_api
+third_party_settings:
+  modeler_api:
+    modeler_id: fallback
+    label: 'Enable consent management for remote video'
 _core:
   default_config_hash: Ar_MbwS1e-DzQ3cQsroO3yEBLMLBtepj4Z_jI0H0QVY
 id: remote_video_consent
-modeller: bpmn_io
-label: 'Enable consent management for remote video'
-version: 1.0.0
 weight: 0
+template: null
 events:
   Event_insert_remote_video:
     plugin: 'content_entity:insert'
@@ -45,61 +48,61 @@ conditions:
     plugin: eca_scalar
     configuration:
       negate: false
-      case: false
       left: '[media:field_media_oembed_video]'
       right: vimeo.com
       operator: contains
       type: value
+      case: false
   Flow_is_provider_disabled:
     plugin: eca_scalar
     configuration:
-      case: false
+      negate: true
       left: '[status]'
       right: '1'
       operator: equal
       type: value
-      negate: true
+      case: false
   Flow_is_youtube:
     plugin: eca_scalar
     configuration:
       negate: false
-      case: false
       left: '[config_name]'
       right: klaro.klaro_app.youtube
       operator: equal
       type: value
+      case: false
   Flow_is:
     plugin: eca_scalar
     configuration:
       negate: false
-      case: false
       left: '[config_name]'
       right: klaro.klaro_app.vimeo
       operator: equal
       type: value
+      case: false
   Flow_disabled:
     plugin: eca_scalar
     configuration:
-      case: false
+      negate: true
       left: '[config:status]'
       right: '1'
       operator: equal
       type: value
-      negate: true
+      case: false
   Flow_was_enabled:
     plugin: eca_scalar
     configuration:
       negate: false
-      case: false
       left: '[config_original:status]'
       right: '1'
       operator: equal
       type: value
+      case: false
 gateways: {  }
 actions:
   Activity_set_default_provider:
-    plugin: eca_token_set_value
     label: 'Set default provider to YouTube'
+    plugin: eca_token_set_value
     configuration:
       token_name: provider
       token_value: youtube
@@ -112,16 +115,16 @@ actions:
         id: Activity_switch_user
         condition: ''
   Activity_set_vimeo_provider:
-    plugin: eca_token_set_value
     label: 'Set provider to Vimeo'
+    plugin: eca_token_set_value
     configuration:
       token_name: provider
       token_value: vimeo
       use_yaml: false
     successors: {  }
   Activity_read_current_setting:
-    plugin: eca_config_read
     label: 'Read current setting'
+    plugin: eca_config_read
     configuration:
       token_name: status
       include_overridden: true
@@ -132,8 +135,8 @@ actions:
         id: Activity_enable_provider
         condition: Flow_is_provider_disabled
   Activity_enable_provider:
-    plugin: eca_config_write
     label: 'Enable provider'
+    plugin: eca_config_write
     configuration:
       config_value: '1'
       use_yaml: false
@@ -142,8 +145,8 @@ actions:
       config_key: status
     successors: {  }
   Activity_switch_user:
-    plugin: eca_switch_account
     label: 'Switch user account'
+    plugin: eca_switch_account
     configuration:
       user_id: '1'
     successors:
@@ -151,24 +154,24 @@ actions:
         id: Activity_read_current_setting
         condition: ''
   Activity_and_1:
-    plugin: eca_void_and_condition
     label: AND
+    plugin: eca_void_and_condition
     configuration: {  }
     successors:
       -
         id: Activity_and_2
         condition: Flow_disabled
   Activity_and_2:
-    plugin: eca_void_and_condition
     label: AND
+    plugin: eca_void_and_condition
     configuration: {  }
     successors:
       -
         id: Activity_switch_
         condition: Flow_was_enabled
   Activity_re_enable_provider:
-    plugin: eca_config_write
     label: 'Re-enable provider'
+    plugin: eca_config_write
     configuration:
       config_value: '1'
       use_yaml: false
@@ -177,8 +180,8 @@ actions:
       config_key: status
     successors: {  }
   Activity_switch_:
-    plugin: eca_switch_account
     label: 'Switch user'
+    plugin: eca_switch_account
     configuration:
       user_id: '1'
     successors:
@@ -186,8 +189,8 @@ actions:
         id: Activity_0rno7mm
         condition: ''
   Activity_0rno7mm:
-    plugin: eca_token_load_entity
     label: 'Load a remote video'
+    plugin: eca_token_load_entity
     configuration:
       token_name: video
       from: properties

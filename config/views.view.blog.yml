@@ -374,6 +374,8 @@ display:
                 options_show_only_used: true
                 options_show_only_used_filtered: false
                 options_hide_when_empty: true
+                scrollable: false
+                scrollable_height: 300
       filters:
         type:
           id: type
