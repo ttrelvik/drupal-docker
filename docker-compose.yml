@@ -27,25 +27,23 @@ services:
         - "traefik.enable=true"
         - "traefik.swarm.network=traefik-net" # Specify the Traefik network
 
-        # Main router for Drupal CMS primary domain
-        # Note: ${DOMAIN} variable substitution doesn't work in Swarm labels - hardcode your domain
-        - "traefik.http.routers.drupal.rule=Host(`blog.trelvik.net`)"
-        - "traefik.http.routers.drupal.entrypoints=https"
-        - "traefik.http.routers.drupal.tls=true"
-        - "traefik.http.routers.drupal.tls.certresolver=myresolver"
-        - "traefik.http.services.drupal.loadbalancer.server.port=80"
+        # Main router for Drupal CMS primary domains (Staging)
+        - "traefik.http.routers.drupal-dev.rule=Host(`drupal-dev.az.trelvik.net`) || Host(`blog.trelvik.net`)"
+        - "traefik.http.routers.drupal-dev.entrypoints=https"
+        - "traefik.http.routers.drupal-dev.tls=true"
+        - "traefik.http.routers.drupal-dev.tls.certresolver=myresolver"
+        - "traefik.http.services.drupal-dev.loadbalancer.server.port=80"
 
-        # --- Dynamic Redirect Router using .env variables ---
-        # Note: ${REDIRECT_HOSTNAME} and ${DOMAIN} must be hardcoded in Swarm mode:
-        - "traefik.http.routers.drupal_redirect.rule=Host(`drupal.az.trelvik.net`)"
-        - "traefik.http.routers.drupal_redirect.entrypoints=https"
-        - "traefik.http.routers.drupal_redirect.tls=true"
-        - "traefik.http.routers.drupal_redirect.tls.certresolver=myresolver"
-        - "traefik.http.routers.drupal_redirect.middlewares=redirect-to-blog"
+        # --- Redirect Router for Legacy Hostname ---
+        - "traefik.http.routers.drupal-dev_redirect.rule=Host(`drupal.az.trelvik.net`)"
+        - "traefik.http.routers.drupal-dev_redirect.entrypoints=https"
+        - "traefik.http.routers.drupal-dev_redirect.tls=true"
+        - "traefik.http.routers.drupal-dev_redirect.tls.certresolver=myresolver"
+        - "traefik.http.routers.drupal-dev_redirect.middlewares=redirect-to-blog-dev"
         # Middleware redirecting to the main DOMAIN
-        - "traefik.http.middlewares.redirect-to-blog.redirectregex.regex=^https://drupal.az.trelvik.net/(.*)"
-        - "traefik.http.middlewares.redirect-to-blog.redirectregex.replacement=https://blog.trelvik.net/$${1}"
-        - "traefik.http.middlewares.redirect-to-blog.redirectregex.permanent=true"
+        - "traefik.http.middlewares.redirect-to-blog-dev.redirectregex.regex=^https://drupal.az.trelvik.net/(.*)"
+        - "traefik.http.middlewares.redirect-to-blog-dev.redirectregex.replacement=https://blog.trelvik.net/$${1}"
+        - "traefik.http.middlewares.redirect-to-blog-dev.redirectregex.permanent=true"
 
   db:
     image: pgvector/pgvector:0.8.3-pg16-trixie

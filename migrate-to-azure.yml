@@ -1,0 +1,165 @@
+---
+- name: Local Backup and Secrets Extraction
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  tasks:
+    - name: Run local backup script
+      ansible.builtin.command: ./backup.sh
+      register: backup_run
+      changed_when: true
+
+    - name: Find latest backup file
+      ansible.builtin.find:
+        paths: "./backups"
+        patterns: "drupal-backup.tar.gz"
+        recurse: yes
+        file_type: file
+      register: found_backups
+
+    - name: Set latest backup path fact
+      ansible.builtin.set_fact:
+        latest_backup_path: "{{ found_backups.files | sort(attribute='mtime', reverse=true) | map(attribute='path') | first }}"
+
+    - name: Print latest backup path
+      ansible.builtin.debug:
+        msg: "Backup found at: {{ latest_backup_path }}"
+
+    - name: Get running production container ID
+      ansible.builtin.shell: docker ps -q --filter "name=^drupal_drupal" | head -n 1
+      register: prod_container_id
+      changed_when: false
+
+    - name: Read drupal_postgres_password from production container
+      ansible.builtin.command: docker exec {{ prod_container_id.stdout }} cat /run/secrets/drupal_postgres_password
+      register: secret_drupal_postgres_password
+      no_log: true
+      changed_when: false
+
+    - name: Read gemini_api_key from production container
+      ansible.builtin.command: docker exec {{ prod_container_id.stdout }} cat /run/secrets/gemini_api_key
+      register: secret_gemini_api_key
+      no_log: true
+      changed_when: false
+
+    - name: Read openai_api_key from production container
+      ansible.builtin.command: docker exec {{ prod_container_id.stdout }} cat /run/secrets/openai_api_key
+      register: secret_openai_api_key
+      no_log: true
+      changed_when: false
+
+- name: Remote Secrets Provisioning, Stack Deploy, and Data Restore
+  hosts: swarm_manager
+  become: yes
+  gather_facts: false
+  tasks:
+    - name: Update apt cache and install python3-docker
+      ansible.builtin.apt:
+        name: python3-docker
+        state: present
+        update_cache: yes
+
+    - name: Provision docker secrets on Swarm manager
+      community.docker.docker_secret:
+        name: "{{ item.name }}"
+        data: "{{ item.data }}"
+        state: present
+      no_log: true
+      loop:
+        - { name: 'drupal_postgres_password', data: "{{ hostvars['localhost']['secret_drupal_postgres_password']['stdout'] }}" }
+        - { name: 'gemini_api_key', data: "{{ hostvars['localhost']['secret_gemini_api_key']['stdout'] }}" }
+        - { name: 'openai_api_key', data: "{{ hostvars['localhost']['secret_openai_api_key']['stdout'] }}" }
+
+    - name: Ensure deployment and backups directories exist
+      ansible.builtin.file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+      loop:
+        - /opt/drupal
+        - /opt/drupal/backups
+        - /opt/drupal/secrets
+        - /opt/drupal/.docker
+        - /opt/drupal/.docker/pg-init
+
+    - name: Copy PostgreSQL init scripts to remote host
+      ansible.builtin.copy:
+        src: .docker/pg-init/
+        dest: /opt/drupal/.docker/pg-init/
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
+    - name: Copy SAML secrets to remote host
+      ansible.builtin.copy:
+        src: secrets/saml
+        dest: /opt/drupal/secrets/
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0700'
+
+    - name: Transfer backup archive to remote host
+      ansible.builtin.copy:
+        src: "{{ hostvars['localhost']['latest_backup_path'] }}"
+        dest: "/opt/drupal/backups/drupal-backup.tar.gz"
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
+    - name: Copy docker-compose.yml to remote host
+      ansible.builtin.copy:
+        src: docker-compose.yml
+        dest: /opt/drupal/docker-compose.yml
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0644'
+
+    - name: Copy .env file to remote host
+      ansible.builtin.copy:
+        src: .env
+        dest: /opt/drupal/.env
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0600'
+
+    - name: Copy restore.sh to remote host
+      ansible.builtin.copy:
+        src: restore.sh
+        dest: /opt/drupal/restore.sh
+        owner: "{{ ansible_user }}"
+        group: "{{ ansible_user }}"
+        mode: '0755'
+
+    - name: Deploy drupal-dev stack
+      ansible.builtin.command: docker stack deploy -c docker-compose.yml drupal-dev
+      args:
+        chdir: /opt/drupal
+
+    - name: Wait for remote drupal-dev_drupal container to be running
+      ansible.builtin.shell: docker ps -q -f name=^drupal-dev_drupal -f status=running | head -n 1
+      register: remote_container_id
+      until: remote_container_id.stdout != ""
+      retries: 24
+      delay: 5
+      changed_when: false
+
+    - name: Wait for Drush to be ready inside container
+      ansible.builtin.command: docker exec {{ remote_container_id.stdout }} drush status
+      register: drush_status
+      until: drush_status.rc == 0
+      retries: 24
+      delay: 5
+      failed_when: false
+      changed_when: false
+
+    - name: Execute restore script to initialize staging state
+      ansible.builtin.command: ./restore.sh drupal-dev /opt/drupal/backups/drupal-backup.tar.gz
+      args:
+        chdir: /opt/drupal
+      register: restore_output
+
+    - name: Print restore script output
+      ansible.builtin.debug:
+        var: restore_output.stdout_lines
