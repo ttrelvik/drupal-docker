@@ -8,6 +8,7 @@ secrets/
 # Project specific
 backups/
 blog_migration.csv
+*.tar.gz
 
 # COMPOSER GENERATED
 /vendor/
