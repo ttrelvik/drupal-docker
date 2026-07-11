@@ -1160,17 +1160,17 @@
         },
         {
             "name": "drupal/ai",
-            "version": "1.4.3",
+            "version": "1.4.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai.git",
-                "reference": "1.4.3"
+                "reference": "1.4.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai-1.4.3.zip",
-                "reference": "1.4.3",
-                "shasum": "b4370be47117ef3dbfadaa1356b310c21acab58e"
+                "url": "https://ftp.drupal.org/files/projects/ai-1.4.4.zip",
+                "reference": "1.4.4",
+                "shasum": "cb2188358266caa6365258cf61f316b019bb4c6a"
             },
             "require": {
                 "drupal/core": "^10.5 || ^11.2",
@@ -1200,8 +1200,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.4.3",
-                    "datestamp": "1782325927",
+                    "version": "1.4.4",
+                    "datestamp": "1783520097",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1302,17 +1302,17 @@
         },
         {
             "name": "drupal/ai_agents",
-            "version": "1.3.1",
+            "version": "1.3.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_agents.git",
-                "reference": "1.3.1"
+                "reference": "1.3.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_agents-1.3.1.zip",
-                "reference": "1.3.1",
-                "shasum": "8414040f9510470c228b77c93683d8b86f8a9630"
+                "url": "https://ftp.drupal.org/files/projects/ai_agents-1.3.2.zip",
+                "reference": "1.3.2",
+                "shasum": "4f894a50d509917664985f7bf4c4f9cc7e0a8b14"
             },
             "require": {
                 "drupal/ai": "^1.4.0",
@@ -1330,8 +1330,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.3.1",
-                    "datestamp": "1782326004",
+                    "version": "1.3.2",
+                    "datestamp": "1783335164",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1456,17 +1456,17 @@
         },
         {
             "name": "drupal/ai_provider_openai",
-            "version": "1.2.2",
+            "version": "1.2.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_provider_openai.git",
-                "reference": "1.2.2"
+                "reference": "1.2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_provider_openai-1.2.2.zip",
-                "reference": "1.2.2",
-                "shasum": "0f6b7d7631fddff38b128edb53f3fed4860719a4"
+                "url": "https://ftp.drupal.org/files/projects/ai_provider_openai-1.2.3.zip",
+                "reference": "1.2.3",
+                "shasum": "8698bda2b03cb2d99a2911a19321ef4039314a6f"
             },
             "require": {
                 "drupal/ai": "^1.2.0",
@@ -1476,8 +1476,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.2.2",
-                    "datestamp": "1782325859",
+                    "version": "1.2.3",
+                    "datestamp": "1783612214",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1530,17 +1530,17 @@
         },
         {
             "name": "drupal/ai_seo",
-            "version": "1.1.2",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_seo.git",
-                "reference": "1.1.2"
+                "reference": "1.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_seo-1.1.2.zip",
-                "reference": "1.1.2",
-                "shasum": "6f606dfae039cc56fb57d2a4c745a7ef357c6580"
+                "url": "https://ftp.drupal.org/files/projects/ai_seo-1.1.3.zip",
+                "reference": "1.1.3",
+                "shasum": "e50d74e360689735651cc76924fe129d1721d216"
             },
             "require": {
                 "drupal/ai": "^1",
@@ -1550,8 +1550,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.2",
-                    "datestamp": "1779872671",
+                    "version": "1.1.3",
+                    "datestamp": "1783530565",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2117,16 +2117,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.4.1",
+            "version": "11.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "d3bccadaed6009451ef164ca9e375ea87efbf347"
+                "reference": "09d9b0087206f9b666f2356917b8c5b2afa26c11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/d3bccadaed6009451ef164ca9e375ea87efbf347",
-                "reference": "d3bccadaed6009451ef164ca9e375ea87efbf347",
+                "url": "https://api.github.com/repos/drupal/core/zipball/09d9b0087206f9b666f2356917b8c5b2afa26c11",
+                "reference": "09d9b0087206f9b666f2356917b8c5b2afa26c11",
                 "shasum": ""
             },
             "require": {
@@ -2294,7 +2294,7 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.4.1"
+                "source": "https://github.com/drupal/core/tree/11.4.2"
             },
             "funding": [
                 {
@@ -2302,20 +2302,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-07-03T13:24:54+00:00"
+            "time": "2026-07-10T14:53:02+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.4.1",
+            "version": "11.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
-                "reference": "9701537e3e918cdade701ac05642fa075714d29e"
+                "reference": "678f9ecb912958ebb046d6f9122b84a0cc6401ff"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/9701537e3e918cdade701ac05642fa075714d29e",
-                "reference": "9701537e3e918cdade701ac05642fa075714d29e",
+                "url": "https://api.github.com/repos/drupal/core-composer-scaffold/zipball/678f9ecb912958ebb046d6f9122b84a0cc6401ff",
+                "reference": "678f9ecb912958ebb046d6f9122b84a0cc6401ff",
                 "shasum": ""
             },
             "require": {
@@ -2350,13 +2350,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.4.1"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.4.2"
             },
-            "time": "2026-05-11T09:50:32+00:00"
+            "time": "2026-07-09T23:23:24+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "11.4.1",
+            "version": "11.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2394,13 +2394,13 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-project-message/tree/11.4.1"
+                "source": "https://github.com/drupal/core-project-message/tree/11.4.2"
             },
             "time": "2026-01-07T19:00:53+00:00"
         },
         {
             "name": "drupal/core-recipe-unpack",
-            "version": "11.4.1",
+            "version": "11.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recipe-unpack.git",
@@ -2441,29 +2441,29 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-recipe-unpack/tree/11.4.1"
+                "source": "https://github.com/drupal/core-recipe-unpack/tree/11.4.2"
             },
             "time": "2026-01-07T19:00:53+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.4.1",
+            "version": "11.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "4111b5d2809544b99e0608cc4b38409ff8648f26"
+                "reference": "d271fc4eadb32cffbd25d47a225e0595c0bc160e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/4111b5d2809544b99e0608cc4b38409ff8648f26",
-                "reference": "4111b5d2809544b99e0608cc4b38409ff8648f26",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/d271fc4eadb32cffbd25d47a225e0595c0bc160e",
+                "reference": "d271fc4eadb32cffbd25d47a225e0595c0bc160e",
                 "shasum": ""
             },
             "require": {
                 "asm89/stack-cors": "~v2.4.0",
                 "composer/semver": "~3.4.4",
                 "doctrine/lexer": "~3.0.1",
-                "drupal/core": "11.4.1",
+                "drupal/core": "11.4.2",
                 "egulias/email-validator": "~4.0.4",
                 "justinrainbow/json-schema": "~6.8.2",
                 "marc-mabe/php-enum": "~v4.7.2",
@@ -2519,9 +2519,9 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.4.1"
+                "source": "https://github.com/drupal/core-recommended/tree/11.4.2"
             },
-            "time": "2026-07-03T13:24:54+00:00"
+            "time": "2026-07-10T14:53:02+00:00"
         },
         {
             "name": "drupal/crop",
@@ -2989,17 +2989,17 @@
         },
         {
             "name": "drupal/easy_email",
-            "version": "3.0.8",
+            "version": "3.0.9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_email.git",
-                "reference": "3.0.8"
+                "reference": "3.0.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_email-3.0.8.zip",
-                "reference": "3.0.8",
-                "shasum": "b1de690585710f77ad8abeb39a18b299b4095001"
+                "url": "https://ftp.drupal.org/files/projects/easy_email-3.0.9.zip",
+                "reference": "3.0.9",
+                "shasum": "802f4681ccde0de51c456f704d0e30d55ec99002"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -3016,8 +3016,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.8",
-                    "datestamp": "1779811457",
+                    "version": "3.0.9",
+                    "datestamp": "1783602522",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3095,17 +3095,17 @@
         },
         {
             "name": "drupal/eca",
-            "version": "3.1.3",
+            "version": "3.1.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eca.git",
-                "reference": "3.1.3"
+                "reference": "3.1.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eca-3.1.3.zip",
-                "reference": "3.1.3",
-                "shasum": "565eaaebfa2bc02721375d64b2e9bd32b1b4e6da"
+                "url": "https://ftp.drupal.org/files/projects/eca-3.1.4.zip",
+                "reference": "3.1.4",
+                "shasum": "a63ee9d4a7d943698a5640f14499d9f0986630eb"
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.1",
@@ -3123,8 +3123,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.3",
-                    "datestamp": "1783081195",
+                    "version": "3.1.4",
+                    "datestamp": "1783530591",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5044,16 +5044,16 @@
         },
         {
             "name": "drush/drush",
-            "version": "13.7.4",
+            "version": "13.7.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drush-ops/drush.git",
-                "reference": "90123a96db5a4d2e0faa97242eef69785aa0e67d"
+                "reference": "051f6b4909728e0d3363aedab19d393f64438de4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drush-ops/drush/zipball/90123a96db5a4d2e0faa97242eef69785aa0e67d",
-                "reference": "90123a96db5a4d2e0faa97242eef69785aa0e67d",
+                "url": "https://api.github.com/repos/drush-ops/drush/zipball/051f6b4909728e0d3363aedab19d393f64438de4",
+                "reference": "051f6b4909728e0d3363aedab19d393f64438de4",
                 "shasum": ""
             },
             "require": {
@@ -5181,7 +5181,7 @@
                 "issues": "https://github.com/drush-ops/drush/issues",
                 "security": "https://github.com/drush-ops/drush/security/advisories",
                 "slack": "https://drupal.slack.com/messages/C62H9CWQM",
-                "source": "https://github.com/drush-ops/drush/tree/13.7.4"
+                "source": "https://github.com/drush-ops/drush/tree/13.7.6"
             },
             "funding": [
                 {
@@ -5189,7 +5189,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-06-15T20:22:19+00:00"
+            "time": "2026-07-08T10:43:20+00:00"
         },
         {
             "name": "egulias/email-validator",
