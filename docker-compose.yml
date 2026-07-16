@@ -2,7 +2,7 @@ services:
   drupal:
     # Use the custom Drupal CMS image with pre-installed dependencies
     # pulled from Docker Hub:
-    image: ttrelvik/drupal-core:beta29
+    image: ttrelvik/drupal-core:beta30
     volumes:
       # Mount the entire sites/default directory for persistence
       - sites_default:/app/web/sites/default
@@ -17,7 +17,7 @@ services:
     env_file:
       - .env
     healthcheck:
-      test: ["CMD-SHELL", "curl -f -H \"Host: $$DOMAIN\" http://localhost/ || exit 1"]
+      test: ["CMD-SHELL", "curl -s -o /dev/null -w \"%{http_code}\" -H \"Host: $$DOMAIN\" http://localhost/ | grep -qE \"^(200|301|302|503)$$\""]
       interval: 15s
       timeout: 5s
       retries: 3
