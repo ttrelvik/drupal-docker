@@ -16,6 +16,12 @@ services:
     # Use .env file for non-sensitive environment variables
     env_file:
       - dev.env # use dev.env for dev
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f -H \"Host: $$DOMAIN\" http://localhost/ || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
     depends_on:
       - db
     networks:
@@ -23,6 +29,13 @@ services:
       - traefik-net
     deploy:
       replicas: 1
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: 1G
+        reservations:
+          cpus: '0.10'
+          memory: 256M
       labels:
         - "traefik.enable=true"
         - "traefik.swarm.network=traefik-net" # Specify the Traefik network
@@ -60,10 +73,23 @@ services:
     # Use .env file for non-sensitive environment variables
     env_file:
       - dev.env # use dev.env for dev
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -q -U drupal -d drupal"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
     networks:
       - drupal_net_dev # renamed for dev
     deploy:
       replicas: 1
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: 2G
+        reservations:
+          cpus: '0.10'
+          memory: 256M
 
 volumes:
   sites_default:
