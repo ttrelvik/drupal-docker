@@ -61,7 +61,7 @@ services:
         - "traefik.http.middlewares.redirect-to-blog.redirectregex.permanent=true"
 
   db:
-    image: pgvector/pgvector:0.8.5-pg16-trixie
+    image: pgvector/pgvector:0.8.6-pg16-trixie
     volumes:
       - db_data:/var/lib/postgresql/data
       # Init script for pgvector to create extension on DB creation
