@@ -1160,17 +1160,17 @@
         },
         {
             "name": "drupal/ai",
-            "version": "1.4.6",
+            "version": "1.4.7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai.git",
-                "reference": "1.4.6"
+                "reference": "1.4.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai-1.4.6.zip",
-                "reference": "1.4.6",
-                "shasum": "77d80e3259d160e7e15253be4ff19b2dee39deab"
+                "url": "https://ftp.drupal.org/files/projects/ai-1.4.7.zip",
+                "reference": "1.4.7",
+                "shasum": "a067620e19f0f5948efafcb51124717127cb8bb8"
             },
             "require": {
                 "drupal/core": "^10.5 || ^11.2",
@@ -1200,8 +1200,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.4.6",
-                    "datestamp": "1785944927",
+                    "version": "1.4.7",
+                    "datestamp": "1787148538",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1456,17 +1456,17 @@
         },
         {
             "name": "drupal/ai_provider_openai",
-            "version": "1.2.4",
+            "version": "1.2.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_provider_openai.git",
-                "reference": "1.2.4"
+                "reference": "1.2.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_provider_openai-1.2.4.zip",
-                "reference": "1.2.4",
-                "shasum": "2ccd5b2fadb5a613c73a39e91a878e232ec4ae1f"
+                "url": "https://ftp.drupal.org/files/projects/ai_provider_openai-1.2.5.zip",
+                "reference": "1.2.5",
+                "shasum": "05f460fdcdcb7e8a2d371ed9cecdf77dc3750cdf"
             },
             "require": {
                 "drupal/ai": "^1.2.0",
@@ -1476,8 +1476,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.2.4",
-                    "datestamp": "1785417702",
+                    "version": "1.2.5",
+                    "datestamp": "1787208334",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2898,26 +2898,29 @@
         },
         {
             "name": "drupal/easy_breadcrumb",
-            "version": "2.0.9",
+            "version": "2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_breadcrumb.git",
-                "reference": "2.0.9"
+                "reference": "2.0.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.9.zip",
-                "reference": "2.0.9",
-                "shasum": "9e7c33e2ec0637d37d509776795a476f2f2d9bb8"
+                "url": "https://ftp.drupal.org/files/projects/easy_breadcrumb-2.0.10.zip",
+                "reference": "2.0.10",
+                "shasum": "a55c793c1f59be1a4866972998b50ced21bfbcb0"
             },
             "require": {
                 "drupal/core": "^9.2 || ^10 || ^11"
             },
+            "require-dev": {
+                "drush/drush": "^13"
+            },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.0.9",
-                    "datestamp": "1732752214",
+                    "version": "2.0.10",
+                    "datestamp": "1787942208",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4134,17 +4137,17 @@
         },
         {
             "name": "drupal/modeler_api",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/modeler_api.git",
-                "reference": "1.1.4"
+                "reference": "1.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/modeler_api-1.1.4.zip",
-                "reference": "1.1.4",
-                "shasum": "e33d844ba9ab523b7bf22078bdfe52dc2e7a3197"
+                "url": "https://ftp.drupal.org/files/projects/modeler_api-1.1.5.zip",
+                "reference": "1.1.5",
+                "shasum": "7fd0eca0afe7358cd10398bd0d28997ceedadae2"
             },
             "require": {
                 "drupal/core": "^11.3 || ^12.0",
@@ -4153,8 +4156,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.4",
-                    "datestamp": "1786962161",
+                    "version": "1.1.5",
+                    "datestamp": "1787564022",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4994,17 +4997,17 @@
         },
         {
             "name": "drupal/trash",
-            "version": "3.0.32",
+            "version": "3.0.33",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/trash.git",
-                "reference": "3.0.32"
+                "reference": "3.0.33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/trash-3.0.32.zip",
-                "reference": "3.0.32",
-                "shasum": "3610950fd58d77946bb9e17365dc22a6d9f6fc37"
+                "url": "https://ftp.drupal.org/files/projects/trash-3.0.33.zip",
+                "reference": "3.0.33",
+                "shasum": "b4681c6fc00f0066f56c1cabb0f1a049ef24d9c7"
             },
             "require": {
                 "drupal/core": "^10.3 | ^11"
@@ -5023,8 +5026,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.32",
-                    "datestamp": "1786015716",
+                    "version": "3.0.33",
+                    "datestamp": "1787936331",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
