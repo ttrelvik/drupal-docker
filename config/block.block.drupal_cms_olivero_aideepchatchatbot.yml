@@ -17,7 +17,6 @@ settings:
   label: 'TomAI Chat'
   label_display: visible
   provider: ai_chatbot
-  ai_assistant: portfolio_advocate
   bot_name: TomAI
   bot_image: /modules/contrib/ai/modules/ai_chatbot/assets/ai-star-avatar.svg
   use_username: 0
@@ -25,14 +24,22 @@ settings:
   use_avatar: 0
   default_avatar: ''
   first_message: "Hi, I can chat with you about Tom's projects or any other content on this site. Let me know if you have any questions!"
-  stream: null
+  loading_message: ''
+  agent_delegation_message: ''
+  stream: 0
   toggle_state: remember
   width: 350px
   height: 60vh
   placement: bottom-right
-  show_structured_results: false
   show_copy_icon: false
   collapse_minimal: false
   style_file: 'module:ai_chatbot:bard.yml'
-  verbose_mode: false
+  disable_csrf: false
+  chat_processor_plugin: ai_assistant_api_processor
+  plugin_configuration:
+    assistant_id: portfolio_advocate
+    stream_output: false
+    verbose_mode: false
+    show_structured_results: false
+  expansion_method: expand
 visibility: {  }

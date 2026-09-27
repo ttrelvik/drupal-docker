@@ -13,7 +13,6 @@ editor: ckeditor5
 settings:
   toolbar:
     items:
-      - aickeditor
       - heading
       - bold
       - italic
@@ -37,52 +36,6 @@ settings:
       - superscript
       - horizontalLine
   plugins:
-    ai_ckeditor_ai:
-      dialog:
-        autoresize: 'min-width: 600px'
-        height: '750'
-        width: '900'
-        dialog_class: ai-ckeditor-modal
-      plugins:
-        ai_agents_ckeditor:
-          agents: {  }
-          enabled: false
-        ai_ckeditor_completion:
-          enabled: true
-          provider: openai__gpt-4o-mini
-        ai_ckeditor_help:
-          enabled: false
-        ai_ckeditor_modify_prompt:
-          enabled: true
-          provider: openai__gpt-4o-mini
-        ai_ckeditor_reformat_html:
-          enabled: true
-          provider: openai__gpt-4o-mini
-        ai_ckeditor_spellfix:
-          enabled: true
-          provider: openai__gpt-4o-mini
-        ai_ckeditor_summarize:
-          enabled: true
-          provider: openai__gpt-4o-mini
-        ai_ckeditor_tone:
-          autocreate: false
-          provider: openai__gpt-4o-mini
-          tone_vocabulary: tags
-          use_description: 0
-          enabled: false
-        ai_ckeditor_translate:
-          autocreate: false
-          provider: openai__gpt-4o-mini
-          translate_vocabulary: tags
-          use_description: false
-          language_source: tax
-          enabled: false
-        ai_summarize_document:
-          provider: openai__gpt-4o-mini
-          document_bundle: document
-          tone_vocabulary: ''
-          length_vocabulary: ''
-          enabled: true
     ckeditor5_alignment:
       enabled_alignments:
         - center

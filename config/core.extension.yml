@@ -7,17 +7,14 @@ module:
   ai_agents_explorer: 0
   ai_assistant_api: 0
   ai_chatbot: 0
-  ai_ckeditor: 0
   ai_content_suggestions: 0
   ai_image_alt_text: 0
   ai_provider_openai: 0
   ai_search: 0
   ai_seo: 0
-  ai_summarize_document: 0
   ai_vdb_provider_postgres: 0
   announcements_feed: 0
   automated_cron: 0
-  automatic_updates: 0
   autosave_form: 0
   better_exposed_filters: 0
   big_pipe: 0
@@ -78,7 +75,6 @@ module:
   navigation: 0
   node: 0
   options: 0
-  package_manager: 0
   page_cache: 0
   path: 0
   path_alias: 0

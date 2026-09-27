@@ -1,5 +1,6 @@
 control_field_max_length: false
 exclude_chunk_from_metadata: false
+exclude_title: false
 indexing_options:
   url:
     indexing_option: contextual_content
