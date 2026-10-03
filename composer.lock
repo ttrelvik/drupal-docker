@@ -808,6 +808,66 @@
             "time": "2024-12-13T19:25:56+00:00"
         },
         {
+            "name": "davereid/drupal-environment",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/davereid/drupal-environment.git",
+                "reference": "51a3213823b9b3c6147b2165e759aa4a4fabf6f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/davereid/drupal-environment/zipball/51a3213823b9b3c6147b2165e759aa4a4fabf6f5",
+                "reference": "51a3213823b9b3c6147b2165e759aa4a4fabf6f5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+            },
+            "require-dev": {
+                "phpstan/extension-installer": "^1",
+                "phpstan/phpstan": "^2",
+                "phpstan/phpstan-deprecation-rules": "^2",
+                "phpunit/phpunit": "^10 || ^11 || ^12",
+                "roave/security-advisories": "dev-master",
+                "squizlabs/php_codesniffer": "^3.7 || ^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DrupalEnvironment\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "email": "dave@davereid.net"
+                }
+            ],
+            "description": "Provides a helper for working with environment variables and Drupal hosting providers.",
+            "keywords": [
+                "acquia",
+                "drupal",
+                "environment",
+                "pantheon",
+                "tugboat"
+            ],
+            "support": {
+                "issues": "https://github.com/davereid/drupal-environment/issues",
+                "source": "https://github.com/davereid/drupal-environment/tree/1.2.0"
+            },
+            "time": "2026-09-03T03:15:17+00:00"
+        },
+        {
             "name": "dflydev/dot-access-data",
             "version": "v3.0.3",
             "source": {
@@ -1363,17 +1423,17 @@
         },
         {
             "name": "drupal/ai_image_alt_text",
-            "version": "1.0.2",
+            "version": "1.0.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_image_alt_text.git",
-                "reference": "1.0.2"
+                "reference": "1.0.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_image_alt_text-1.0.2.zip",
-                "reference": "1.0.2",
-                "shasum": "57aede710c493b84270740a773fb3de96e465322"
+                "url": "https://ftp.drupal.org/files/projects/ai_image_alt_text-1.0.3.zip",
+                "reference": "1.0.3",
+                "shasum": "99f305dab8699a3be5be0ede863f0a1159c82ef3"
             },
             "require": {
                 "drupal/ai": "^1.0.0",
@@ -1382,8 +1442,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.2",
-                    "datestamp": "1764942107",
+                    "version": "1.0.3",
+                    "datestamp": "1790851126",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3032,26 +3092,27 @@
         },
         {
             "name": "drupal/drupal_cms_helper",
-            "version": "2.2.0",
+            "version": "2.2.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drupal_cms_helper.git",
-                "reference": "2.2.0"
+                "reference": "2.2.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.2.0.zip",
-                "reference": "2.2.0",
-                "shasum": "d223dd8f42b1cfca479bb9379d539d66f5e445e1"
+                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.2.2.zip",
+                "reference": "2.2.2",
+                "shasum": "a4e747f2307732ec9ae1cf3b062fdf61c94910ff"
             },
             "require": {
+                "davereid/drupal-environment": "^1.2",
                 "drupal/core": "^11.4"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.0",
-                    "datestamp": "1790374896",
+                    "version": "2.2.2",
+                    "datestamp": "1790784970",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3430,17 +3491,17 @@
         },
         {
             "name": "drupal/field_validation",
-            "version": "3.0.0-rc2",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/field_validation.git",
-                "reference": "3.0.0-rc2"
+                "reference": "3.0.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/field_validation-3.0.0-rc2.zip",
-                "reference": "3.0.0-rc2",
-                "shasum": "1441538325ce38268dfb09e981217e8274256b8f"
+                "url": "https://ftp.drupal.org/files/projects/field_validation-3.0.0.zip",
+                "reference": "3.0.0",
+                "shasum": "01cc1a1221bef003e2709e2ed455a4714d0805c0"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11",
@@ -3451,11 +3512,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.0-rc2",
-                    "datestamp": "1789574788",
+                    "version": "3.0.0",
+                    "datestamp": "1790848976",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -3475,6 +3536,10 @@
                 {
                     "name": "manuel.adan",
                     "homepage": "https://www.drupal.org/user/516420"
+                },
+                {
+                    "name": "marcus_johansson",
+                    "homepage": "https://www.drupal.org/user/385947"
                 }
             ],
             "description": "Field validation allow you add constraint to field by UI.",
@@ -3601,17 +3666,17 @@
         },
         {
             "name": "drupal/gemini_provider",
-            "version": "1.0.1",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gemini_provider.git",
-                "reference": "1.0.1"
+                "reference": "1.1.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gemini_provider-1.0.1.zip",
-                "reference": "1.0.1",
-                "shasum": "51fd7744b52cffdc163a732872fca0e420e1c572"
+                "url": "https://ftp.drupal.org/files/projects/gemini_provider-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "818fa0cf13405617b077cb62f256b968f06809b7"
             },
             "require": {
                 "drupal/ai": "^1.2",
@@ -3625,8 +3690,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.1",
-                    "datestamp": "1774173695",
+                    "version": "1.1.0",
+                    "datestamp": "1790680580",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
