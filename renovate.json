@@ -3,6 +3,14 @@
   "extends": [
     "config:recommended"
   ],
+  "timezone": "America/New_York",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": [
+      "before 6am on saturday"
+    ],
+    "automerge": false
+  },
   "packageRules": [
     {
       "matchPackageNames": [
