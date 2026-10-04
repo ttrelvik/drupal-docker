@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-# --- CONFIGURATION ---
-CONTAINER_FILTER="^drupal_drupal"
+STACK_NAME="${1:-drupal}"
+CONTAINER_FILTER="^${STACK_NAME}_drupal"
 BACKUP_DIR_BASE="./backups"
 BACKUP_FILENAME="drupal-backup.tar.gz"
 BACKUP_DEST_IN_CONTAINER="/tmp/$BACKUP_FILENAME"

@@ -2,7 +2,7 @@ services:
   drupal:
     # Use the custom Drupal CMS image with pre-installed dependencies
     # pulled from Docker Hub:
-    image: ttrelvik/drupal-core:beta52
+    image: ttrelvik/drupal-core:1.0.0
     volumes:
       # Mount the entire sites/default directory for persistence
       - sites_default:/app/web/sites/default
@@ -61,11 +61,11 @@ services:
         - "traefik.http.middlewares.redirect-to-blog.redirectregex.permanent=true"
 
   db:
-    image: pgvector/pgvector:0.8.7-pg16-trixie
+    image: pgvector/pgvector:0.8.7-pg18
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - db_data_v18:/var/lib/postgresql
       # Init script for pgvector to create extension on DB creation
-      - ./.docker/pg-init:/docker-entrypoint-initdb.d
+      - /mnt/swarm-volumes/drupal-docker/.docker/pg-init:/docker-entrypoint-initdb.d
     secrets:
       - source: drupal_postgres_password
         target: drupal_postgres_password
@@ -93,6 +93,7 @@ services:
 volumes:
   sites_default:
   db_data:
+  db_data_v18:
 
 secrets:
   drupal_postgres_password:

@@ -78,6 +78,8 @@ run_in_container tar -xzf "$RESTORE_DEST_IN_CONTAINER" -C "$EXTRACT_DIR"
 
 echo "Step 4: Restoring the database..."
 run_in_container drush sql:drop -y
+echo "Ensuring required PostgreSQL extensions exist..."
+run_in_container drush sql:query "CREATE EXTENSION IF NOT EXISTS vector; CREATE EXTENSION IF NOT EXISTS pg_trgm;"
 run_in_container sh -c "drush sql:cli < $EXTRACT_DIR/database/database.sql"
 
 echo "Step 5: Restoring the files..."

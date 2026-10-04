@@ -54,7 +54,7 @@ RUN apt-get update && apt-get install -y \
     echo "deb [signed-by=/usr/share/keyrings/postgresql-archive-keyring.gpg] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list && \
     # Update apt lists again and install the specific client version
     apt-get update && \
-    apt-get install -y postgresql-client-16
+    apt-get install -y postgresql-client-18
 
 # Configure and install required PHP extensions for Drupal.
 RUN docker-php-ext-configure gd --with-jpeg --with-webp
