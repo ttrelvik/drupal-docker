@@ -19,6 +19,16 @@
       "dependencyDashboardApproval": true
     },
     {
+      "matchPackageNames": [
+        "php"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "major"
+      ],
+      "dependencyDashboardApproval": true
+    },
+    {
       "matchManagers": [
         "composer"
       ],
