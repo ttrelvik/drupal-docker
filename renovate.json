@@ -13,10 +13,10 @@
   },
   "packageRules": [
     {
-      "matchPackageNames": [
-        "php"
+      "matchUpdateTypes": [
+        "major"
       ],
-      "allowedVersions": "< 8.5.0"
+      "dependencyDashboardApproval": true
     },
     {
       "matchManagers": [
