@@ -92,7 +92,6 @@ services:
 
 volumes:
   sites_default:
-  db_data:
   db_data_v18:
 
 secrets:

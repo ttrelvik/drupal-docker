@@ -11,7 +11,7 @@ The project runs a multi-container stack defined by a Configuration-as-Code stra
 ### Services
 - **Drupal Core (`drupal-core`)**: A custom PHP 8.4 application image based on `php:8.4-fpm-bookworm` bundled with Nginx. Active configuration files and the custom [settings.local.php](file:///home/ttrelvik/services/drupal-docker/.docker/drupal/settings.local.php) are compiled directly into the image at build time via the [Dockerfile](file:///home/ttrelvik/services/drupal-docker/Dockerfile).
   - *Current Production Tag:* `ttrelvik/drupal-core:beta21`
-- **Database (`db`)**: PostgreSQL 16 with the `pgvector` extension (`pgvector/pgvector:0.8.2-pg16-trixie`) for storing system schemas and managing AI vector embeddings.
+- **Database (`db`)**: PostgreSQL 18 with the `pgvector` extension (`pgvector/pgvector:0.8.7-pg18`) for storing system schemas and managing AI vector embeddings.
 
 ### Networking
 The stack leverages two Docker networks to isolate traffic and handle routing:
@@ -21,7 +21,7 @@ The stack leverages two Docker networks to isolate traffic and handle routing:
 ### Persistent Volumes
 To ensure data preservation across container updates and restarts, the architecture relies on two persistent volume mounts:
 - **`sites_default`**: Mounted at `/app/web/sites/default` inside the Drupal container. This persists dynamically uploaded files (such as user uploads and media assets) while the codebase and configuration remain burned into the image.
-- **`db_data`**: Mounted at `/var/lib/postgresql/data` inside the database container. This persists the active PostgreSQL database state.
+- **`db_data_v18` / `db_data_dev_v18`**: Mounted at `/var/lib/postgresql` inside the database container. This persists the active PostgreSQL database state.
 
 ---
 
