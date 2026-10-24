@@ -2124,26 +2124,26 @@
         },
         {
             "name": "drupal/autosave_form",
-            "version": "1.11.0",
+            "version": "1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/autosave_form.git",
-                "reference": "8.x-1.11"
+                "reference": "8.x-1.12"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/autosave_form-8.x-1.11.zip",
-                "reference": "8.x-1.11",
-                "shasum": "26b5326a5bff571a5fef1ebf0b3998dadb37f968"
+                "url": "https://ftp.drupal.org/files/projects/autosave_form-8.x-1.12.zip",
+                "reference": "8.x-1.12",
+                "shasum": "83b560ec010b77515294f2bb838f807d6d6430ab"
             },
             "require": {
-                "drupal/core": "^9.5 || ^10 || ^11"
+                "drupal/core": "^10.1 || ^11"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "8.x-1.11",
-                    "datestamp": "1774966593",
+                    "version": "8.x-1.12",
+                    "datestamp": "1792760832",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3111,17 +3111,17 @@
         },
         {
             "name": "drupal/drupal_cms_helper",
-            "version": "2.2.6",
+            "version": "2.2.7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drupal_cms_helper.git",
-                "reference": "2.2.6"
+                "reference": "2.2.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.2.6.zip",
-                "reference": "2.2.6",
-                "shasum": "4b4f0922bf90bed88e240d058733ff3f330addb7"
+                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.2.7.zip",
+                "reference": "2.2.7",
+                "shasum": "93f95a5e89e856c10f79273c6051f7c3774ebd67"
             },
             "require": {
                 "davereid/drupal-environment": "^1.2",
@@ -3130,8 +3130,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.6",
-                    "datestamp": "1792430429",
+                    "version": "2.2.7",
+                    "datestamp": "1792774602",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3442,17 +3442,17 @@
         },
         {
             "name": "drupal/eca",
-            "version": "3.1.9",
+            "version": "3.1.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/eca.git",
-                "reference": "3.1.9"
+                "reference": "3.1.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eca-3.1.9.zip",
-                "reference": "3.1.9",
-                "shasum": "b8f84d071748ae32b7b1b54f5246d82825f130a9"
+                "url": "https://ftp.drupal.org/files/projects/eca-3.1.10.zip",
+                "reference": "3.1.10",
+                "shasum": "88a1c84a57193f87012d39734e504b2d7d14d51c"
             },
             "require": {
                 "dragonmantank/cron-expression": "^3.1",
@@ -3472,8 +3472,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.9",
-                    "datestamp": "1790066100",
+                    "version": "3.1.10",
+                    "datestamp": "1792683726",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3481,7 +3481,8 @@
                 },
                 "patches": {
                     "drupal/project_browser": {
-                        "#3622921 Implement getModulesToInstall in TestModuleInstaller": "https://git.drupalcode.org/issue/project_browser-3622921/-/commit/9afcce0676ca61ca1514a14b6d882cbd081c0045.diff"
+                        "#3622921 Implement getModulesToInstall in TestModuleInstaller": "https://git.drupalcode.org/issue/project_browser-3622921/-/commit/9afcce0676ca61ca1514a14b6d882cbd081c0045.diff",
+                        "#3631657 Implement getModulesToUninstall in TestModuleInstaller": "https://git.drupalcode.org/issue/project_browser-3631657/-/commit/1c06d55c8c1ec8983d2ddd74542dee125102a378.diff"
                     }
                 }
             },
@@ -5481,17 +5482,17 @@
         },
         {
             "name": "drupal/trash",
-            "version": "3.1.1",
+            "version": "3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/trash.git",
-                "reference": "3.1.1"
+                "reference": "3.1.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/trash-3.1.1.zip",
-                "reference": "3.1.1",
-                "shasum": "d7b28419ca204732df10d2a166fdfcb0f17faa1a"
+                "url": "https://ftp.drupal.org/files/projects/trash-3.1.2.zip",
+                "reference": "3.1.2",
+                "shasum": "c25cf14a3b041bc7ed987c6069d5e06623081675"
             },
             "require": {
                 "drupal/core": "^11.3.3 | ^12"
@@ -5513,8 +5514,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.1.1",
-                    "datestamp": "1791893108",
+                    "version": "3.1.2",
+                    "datestamp": "1792828492",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
