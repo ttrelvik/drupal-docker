@@ -32,6 +32,12 @@
       "matchManagers": [
         "composer"
       ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "groupName": "Composer Suite",
       "groupSlug": "composer-packages"
     }
