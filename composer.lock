@@ -1445,17 +1445,17 @@
         },
         {
             "name": "drupal/ai_image_alt_text",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_image_alt_text.git",
-                "reference": "1.0.3"
+                "reference": "1.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_image_alt_text-1.0.3.zip",
-                "reference": "1.0.3",
-                "shasum": "99f305dab8699a3be5be0ede863f0a1159c82ef3"
+                "url": "https://ftp.drupal.org/files/projects/ai_image_alt_text-1.0.4.zip",
+                "reference": "1.0.4",
+                "shasum": "e2938be265f2b66c14724d05b6d62b39a63fa7c1"
             },
             "require": {
                 "drupal/ai": "^1.0.0",
@@ -1464,8 +1464,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.3",
-                    "datestamp": "1790851126",
+                    "version": "1.0.4",
+                    "datestamp": "1794823263",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1506,12 +1506,13 @@
             "description": "Allows the possibility to set an alt text using AI.",
             "homepage": "https://www.drupal.org/project/ai_image_alt_text",
             "keywords": [
+                "Accessibility",
                 "Drupal"
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_image_alt_text"
             },
-            "published-time": "2026-10-01T10:38:26+00:00"
+            "published-time": "2026-11-16T10:00:42+00:00"
         },
         {
             "name": "drupal/ai_logging",
@@ -2491,16 +2492,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "11.4.12",
+            "version": "11.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core.git",
-                "reference": "d383935b2ee61cef905fa7d1f84642160a89a942"
+                "reference": "ec81468a1e534a8a5a0b803060dbe782a709ef77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core/zipball/d383935b2ee61cef905fa7d1f84642160a89a942",
-                "reference": "d383935b2ee61cef905fa7d1f84642160a89a942",
+                "url": "https://api.github.com/repos/drupal/core/zipball/ec81468a1e534a8a5a0b803060dbe782a709ef77",
+                "reference": "ec81468a1e534a8a5a0b803060dbe782a709ef77",
                 "shasum": ""
             },
             "require": {
@@ -2673,7 +2674,7 @@
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
             "support": {
-                "source": "https://github.com/drupal/core/tree/11.4.12"
+                "source": "https://github.com/drupal/core/tree/11.4.13"
             },
             "funding": [
                 {
@@ -2681,12 +2682,12 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-11-06T22:05:10+00:00",
-            "published-time": "2026-11-06T22:25:08+00:00"
+            "time": "2026-11-18T14:44:34+00:00",
+            "published-time": "2026-11-18T16:58:40+00:00"
         },
         {
             "name": "drupal/core-composer-scaffold",
-            "version": "11.4.12",
+            "version": "11.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-composer-scaffold.git",
@@ -2730,14 +2731,14 @@
                 "drupal"
             ],
             "support": {
-                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.4.12"
+                "source": "https://github.com/drupal/core-composer-scaffold/tree/11.4.13"
             },
             "time": "2026-07-09T23:23:24+00:00",
-            "published-time": "2026-11-06T22:26:17+00:00"
+            "published-time": "2026-11-18T16:59:51+00:00"
         },
         {
             "name": "drupal/core-project-message",
-            "version": "11.4.12",
+            "version": "11.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-project-message.git",
@@ -2778,11 +2779,11 @@
                 "source": "https://github.com/drupal/core-project-message/tree/11.5.0-beta1"
             },
             "time": "2026-01-07T19:00:53+00:00",
-            "published-time": "2026-11-06T22:25:48+00:00"
+            "published-time": "2026-11-18T16:59:15+00:00"
         },
         {
             "name": "drupal/core-recipe-unpack",
-            "version": "11.4.12",
+            "version": "11.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recipe-unpack.git",
@@ -2826,27 +2827,27 @@
                 "source": "https://github.com/drupal/core-recipe-unpack/tree/11.5.0-beta1"
             },
             "time": "2026-01-07T19:00:53+00:00",
-            "published-time": "2026-11-06T22:26:19+00:00"
+            "published-time": "2026-11-18T16:59:53+00:00"
         },
         {
             "name": "drupal/core-recommended",
-            "version": "11.4.12",
+            "version": "11.4.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal/core-recommended.git",
-                "reference": "30234a02ba4ae4e30b1bb54efaaca2c9834e2c1d"
+                "reference": "84c62025acb64562b191b200a33dab043c3590db"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/30234a02ba4ae4e30b1bb54efaaca2c9834e2c1d",
-                "reference": "30234a02ba4ae4e30b1bb54efaaca2c9834e2c1d",
+                "url": "https://api.github.com/repos/drupal/core-recommended/zipball/84c62025acb64562b191b200a33dab043c3590db",
+                "reference": "84c62025acb64562b191b200a33dab043c3590db",
                 "shasum": ""
             },
             "require": {
                 "asm89/stack-cors": "~v2.4.0",
                 "composer/semver": "~3.4.4",
                 "doctrine/lexer": "~3.0.1",
-                "drupal/core": "11.4.12",
+                "drupal/core": "11.4.13",
                 "egulias/email-validator": "~4.0.4",
                 "justinrainbow/json-schema": "~6.8.2",
                 "marc-mabe/php-enum": "~v4.7.2",
@@ -2904,10 +2905,10 @@
             ],
             "description": "Core and its dependencies with known-compatible minor versions. Require this project INSTEAD OF drupal/core.",
             "support": {
-                "source": "https://github.com/drupal/core-recommended/tree/11.4.12"
+                "source": "https://github.com/drupal/core-recommended/tree/11.4.13"
             },
-            "time": "2026-11-06T22:05:10+00:00",
-            "published-time": "2026-11-06T22:25:57+00:00"
+            "time": "2026-11-18T14:44:34+00:00",
+            "published-time": "2026-11-18T16:59:30+00:00"
         },
         {
             "name": "drupal/crop",
@@ -3396,17 +3397,17 @@
         },
         {
             "name": "drupal/easy_email",
-            "version": "3.0.9",
+            "version": "3.0.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_email.git",
-                "reference": "3.0.9"
+                "reference": "3.0.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_email-3.0.9.zip",
-                "reference": "3.0.9",
-                "shasum": "802f4681ccde0de51c456f704d0e30d55ec99002"
+                "url": "https://ftp.drupal.org/files/projects/easy_email-3.0.10.zip",
+                "reference": "3.0.10",
+                "shasum": "c5911af2a2eb9ca41d50b729cfaa720ea8a441b1"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -3417,14 +3418,15 @@
                 "drupal/commerce": "^2 || ^3",
                 "drupal/commerce_order": "*",
                 "drupal/commerce_price": "*",
+                "drupal/easy_email_theme": "^1",
                 "drupal/mailsystem": "^4",
                 "drupal/symfony_mailer_lite": "^1 || ^2"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "3.0.9",
-                    "datestamp": "1783602522",
+                    "version": "3.0.10",
+                    "datestamp": "1794855655",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3452,24 +3454,28 @@
             ],
             "description": "Easy Email is an HTML email system for Drupal, designed to be as simple as possible to configure, with a robust set of features.",
             "homepage": "https://www.drupal.org/project/easy_email",
+            "keywords": [
+                "Actively maintained",
+                "Integrations"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/easy_email"
             },
-            "published-time": "2026-07-09T13:08:21+00:00"
+            "published-time": "2026-11-16T19:00:32+00:00"
         },
         {
             "name": "drupal/easy_email_theme",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_email_theme.git",
-                "reference": "1.1.0"
+                "reference": "1.1.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_email_theme-1.1.0.zip",
-                "reference": "1.1.0",
-                "shasum": "14270a75753e3c228a2a281b266b7e62c270b4f0"
+                "url": "https://ftp.drupal.org/files/projects/easy_email_theme-1.1.1.zip",
+                "reference": "1.1.1",
+                "shasum": "f90a3e4a06f00d80d12bc7c42a0aeadec97aeedb"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11"
@@ -3477,8 +3483,8 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "1.1.0",
-                    "datestamp": "1757509759",
+                    "version": "1.1.1",
+                    "datestamp": "1794855439",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3497,10 +3503,13 @@
             ],
             "description": "A theme for sending HTML emails",
             "homepage": "https://www.drupal.org/project/easy_email_theme",
+            "keywords": [
+                "Actively maintained"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/easy_email_theme"
             },
-            "published-time": "2025-09-10T12:58:29+00:00"
+            "published-time": "2026-11-16T18:56:57+00:00"
         },
         {
             "name": "drupal/eca",
