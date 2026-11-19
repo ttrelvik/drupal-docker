@@ -1143,17 +1143,17 @@
         },
         {
             "name": "drupal/ai",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai.git",
-                "reference": "1.5.2"
+                "reference": "1.5.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai-1.5.2.zip",
-                "reference": "1.5.2",
-                "shasum": "b47b8a1bdc0ee719766cdd337cbfddd6eb0e8c70"
+                "url": "https://ftp.drupal.org/files/projects/ai-1.5.3.zip",
+                "reference": "1.5.3",
+                "shasum": "aa97498ca57273483491dc418de99037236ea8cf"
             },
             "require": {
                 "drupal/ai_content_suggestions": "^1.5",
@@ -1193,8 +1193,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.5.2",
-                    "datestamp": "1793214802",
+                    "version": "1.5.3",
+                    "datestamp": "1795101176",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1293,10 +1293,14 @@
             ],
             "description": "AI module for Drupal",
             "homepage": "https://www.drupal.org/project/ai",
+            "keywords": [
+                "Actively maintained",
+                "Automation"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai"
             },
-            "published-time": "2026-10-28T11:05:40+00:00"
+            "published-time": "2026-11-19T15:12:35+00:00"
         },
         {
             "name": "drupal/ai_agents",
@@ -1438,6 +1442,10 @@
             ],
             "description": "AI Content suggestions for fields",
             "homepage": "https://www.drupal.org/project/ai_content_suggestions",
+            "keywords": [
+                "Actively maintained",
+                "Artificial Intelligence (AI)"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_content_suggestions"
             },
@@ -1558,6 +1566,10 @@
             ],
             "description": "AI Logging module (formerly sub-module of AI Core)",
             "homepage": "https://www.drupal.org/project/ai_logging",
+            "keywords": [
+                "Actively maintained",
+                "Artificial Intelligence (AI)"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_logging"
             },
@@ -1902,6 +1914,10 @@
             ],
             "description": "This module provides simple one-click AI-powered translations.",
             "homepage": "https://www.drupal.org/project/ai_translate",
+            "keywords": [
+                "Actively maintained",
+                "Artificial Intelligence (AI)"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_translate"
             },
@@ -1971,6 +1987,10 @@
             ],
             "description": "AI support for the Field Validation module",
             "homepage": "https://www.drupal.org/project/ai_validations",
+            "keywords": [
+                "Actively maintained",
+                "Artificial Intelligence (AI)"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_validations"
             },
