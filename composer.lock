@@ -3180,17 +3180,17 @@
         },
         {
             "name": "drupal/drupal_cms_helper",
-            "version": "2.2.9",
+            "version": "2.2.10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/drupal_cms_helper.git",
-                "reference": "2.2.9"
+                "reference": "2.2.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.2.9.zip",
-                "reference": "2.2.9",
-                "shasum": "d302757929d964d82d438cf203a396bd0bd0b3f4"
+                "url": "https://ftp.drupal.org/files/projects/drupal_cms_helper-2.2.10.zip",
+                "reference": "2.2.10",
+                "shasum": "b38e0f0f7900af45ac13d4b9a42c6146edae9882"
             },
             "require": {
                 "drupal/core": "^11.4.8"
@@ -3205,8 +3205,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.2.9",
-                    "datestamp": "1794417904",
+                    "version": "2.2.10",
+                    "datestamp": "1795129614",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3236,7 +3236,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/drupal_cms_helper"
             },
-            "published-time": "2026-11-11T17:24:43+00:00"
+            "published-time": "2026-11-19T23:06:34+00:00"
         },
         {
             "name": "drupal/drupal_cms_olivero",
