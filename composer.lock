@@ -3485,26 +3485,26 @@
         },
         {
             "name": "drupal/easy_email_theme",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_email_theme.git",
-                "reference": "1.1.1"
+                "reference": "1.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_email_theme-1.1.1.zip",
-                "reference": "1.1.1",
-                "shasum": "f90a3e4a06f00d80d12bc7c42a0aeadec97aeedb"
+                "url": "https://ftp.drupal.org/files/projects/easy_email_theme-1.2.0.zip",
+                "reference": "1.2.0",
+                "shasum": "de06ea8d466693119550814af05c9c107d9d11ae"
             },
             "require": {
-                "drupal/core": "^10.2 || ^11"
+                "drupal/core": "^10.2 || ^11 || ^12"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "1.1.1",
-                    "datestamp": "1794855439",
+                    "version": "1.2.0",
+                    "datestamp": "1795183493",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3529,7 +3529,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/easy_email_theme"
             },
-            "published-time": "2026-11-16T18:56:57+00:00"
+            "published-time": "2026-11-20T14:04:32+00:00"
         },
         {
             "name": "drupal/eca",
@@ -4374,17 +4374,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.18",
+            "version": "7.0.19",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.18"
+                "reference": "7.0.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.18.zip",
-                "reference": "7.0.18",
-                "shasum": "f5bb814b0ed8390f64c603e99b01dd00c3837be2"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.19.zip",
+                "reference": "7.0.19",
+                "shasum": "9fe84b73562a8d25f2a2f70bd75cbf9c848c9e4f"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11 || ^12"
@@ -4392,8 +4392,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.18",
-                    "datestamp": "1794259888",
+                    "version": "7.0.19",
+                    "datestamp": "1795209476",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4426,19 +4426,19 @@
                 {
                     "name": "mark_fullmer",
                     "homepage": "https://www.drupal.org/user/2612816"
-                },
-                {
-                    "name": "utexas",
-                    "homepage": "https://www.drupal.org/user/3716409"
                 }
             ],
             "description": "Linkit - Enriched linking experience",
             "homepage": "http://drupal.org/project/linkit",
+            "keywords": [
+                "Administration tools",
+                "Minimally maintained"
+            ],
             "support": {
                 "source": "http://cgit.drupalcode.org/linkit",
                 "issues": "http://drupal.org/project/linkit"
             },
-            "published-time": "2026-11-09T21:31:07+00:00"
+            "published-time": "2026-11-20T21:17:35+00:00"
         },
         {
             "name": "drupal/login_emailusername",
