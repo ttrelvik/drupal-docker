@@ -629,16 +629,16 @@
         },
         {
             "name": "consolidation/robo",
-            "version": "5.2.3",
+            "version": "5.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/robo.git",
-                "reference": "78a541531cb613e9ce825b64ef3aa666d1e95598"
+                "reference": "2a2327b8dc6c893b76a6fc1cfe51cb785a38b7e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/robo/zipball/78a541531cb613e9ce825b64ef3aa666d1e95598",
-                "reference": "78a541531cb613e9ce825b64ef3aa666d1e95598",
+                "url": "https://api.github.com/repos/consolidation/robo/zipball/2a2327b8dc6c893b76a6fc1cfe51cb785a38b7e2",
+                "reference": "2a2327b8dc6c893b76a6fc1cfe51cb785a38b7e2",
                 "shasum": ""
             },
             "require": {
@@ -661,11 +661,11 @@
                 "codegyre/robo": "*"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.95.30",
                 "natxet/cssmin": "3.0.4",
                 "patchwork/jsqueeze": "^2",
                 "pear/archive_tar": "^1.4.4",
                 "phpunit/phpunit": "^7.5.20 || ^8 || ^9",
-                "squizlabs/php_codesniffer": "^3.6",
                 "yoast/phpunit-polyfills": "^0.2.0"
             },
             "suggest": {
@@ -696,10 +696,10 @@
             "description": "Modern task runner",
             "support": {
                 "issues": "https://github.com/consolidation/robo/issues",
-                "source": "https://github.com/consolidation/robo/tree/5.2.3"
+                "source": "https://github.com/consolidation/robo/tree/5.2.4"
             },
-            "time": "2026-11-12T17:53:46+00:00",
-            "published-time": "2026-11-12T17:54:12+00:00"
+            "time": "2026-11-20T19:31:06+00:00",
+            "published-time": "2026-11-20T19:31:33+00:00"
         },
         {
             "name": "consolidation/self-update",
@@ -1390,28 +1390,28 @@
         },
         {
             "name": "drupal/ai_content_suggestions",
-            "version": "1.5.2",
+            "version": "1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_content_suggestions.git",
-                "reference": "1.5.2"
+                "reference": "1.5.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_content_suggestions-1.5.2.zip",
-                "reference": "1.5.2",
-                "shasum": "a2f03b657f754eea5ebf305b9a8d77fc06970a05"
+                "url": "https://ftp.drupal.org/files/projects/ai_content_suggestions-1.5.3.zip",
+                "reference": "1.5.3",
+                "shasum": "2cfd41659b781abe37057bdf89f3e23a492bf7cd"
             },
             "require": {
                 "drupal/ai": "^1.4",
-                "drupal/core": "^10.4 || ^11",
+                "drupal/core": "^10.4 || ^11 || ^12",
                 "drupal/field_widget_actions": "^1.3"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.5.2",
-                    "datestamp": "1791397977",
+                    "version": "1.5.3",
+                    "datestamp": "1795035533",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1449,7 +1449,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_content_suggestions"
             },
-            "published-time": "2026-10-07T18:32:37+00:00"
+            "published-time": "2026-11-18T20:58:32+00:00"
         },
         {
             "name": "drupal/ai_image_alt_text",
@@ -1524,21 +1524,22 @@
         },
         {
             "name": "drupal/ai_logging",
-            "version": "1.3.3",
+            "version": "1.3.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_logging.git",
-                "reference": "1.3.3"
+                "reference": "1.3.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_logging-1.3.3.zip",
-                "reference": "1.3.3",
-                "shasum": "7d273b4ec17bed4a1a992cfe6512fc30ae4e68fe"
+                "url": "https://ftp.drupal.org/files/projects/ai_logging-1.3.4.zip",
+                "reference": "1.3.4",
+                "shasum": "fb3c69b2208ad4783fe7b2b7aade97b46a88c059"
             },
             "require": {
                 "drupal/ai": "^1.2",
-                "drupal/core": "^10.4 || ^11"
+                "drupal/core": "^10.4 || ^11 || ^12",
+                "league/commonmark": "^2.4"
             },
             "conflict": {
                 "drupal/ai": "<1.2"
@@ -1546,8 +1547,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.3.3",
-                    "datestamp": "1790178601",
+                    "version": "1.3.4",
+                    "datestamp": "1794842991",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1573,7 +1574,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_logging"
             },
-            "published-time": "2026-09-23T15:49:39+00:00"
+            "published-time": "2026-11-16T15:29:31+00:00"
         },
         {
             "name": "drupal/ai_provider_openai",
@@ -1649,6 +1650,10 @@
             ],
             "description": "OpenAI provider implementation for the AI module for Drupal",
             "homepage": "https://www.drupal.org/project/ai_provider_openai",
+            "keywords": [
+                "Actively maintained",
+                "Integrations"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_provider_openai"
             },
@@ -1731,6 +1736,10 @@
             ],
             "description": "AI Search module for Drupal",
             "homepage": "https://www.drupal.org/project/ai_search",
+            "keywords": [
+                "Actively maintained",
+                "Artificial Intelligence (AI)"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_search"
             },
@@ -1837,39 +1846,42 @@
         },
         {
             "name": "drupal/ai_translate",
-            "version": "1.4.4",
+            "version": "1.4.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_translate.git",
-                "reference": "1.4.4"
+                "reference": "1.4.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_translate-1.4.4.zip",
-                "reference": "1.4.4",
-                "shasum": "644a47d6aa7ce1f500c0f6070b382bf41110c4a0"
+                "url": "https://ftp.drupal.org/files/projects/ai_translate-1.4.5.zip",
+                "reference": "1.4.5",
+                "shasum": "6b4d657fe11b5d7185100eb202e47f000b1bd049"
             },
             "require": {
                 "drupal/ai": ">1.2.1",
-                "drupal/core": "^10.4 || ^11"
+                "drupal/core": "^10.4 || ^11 || ^12"
             },
             "conflict": {
                 "drupal/tool": "<1.0.0-beta10"
             },
             "require-dev": {
+                "drupal/ai_context": "1.0.x-dev",
+                "drupal/ai_disclosure": "^1.0@beta",
                 "drupal/layout_builder_at": "^3.0",
                 "drupal/layout_builder_st": "^2.0",
                 "drupal/tool": "^1.0.0-beta10",
                 "drush/drush": "^12 || ^13"
             },
             "suggest": {
+                "drupal/ai_context": "1.0.0-beta5 or later. Push site context into chat-proxy translations via the Context Control Center consumer type.",
                 "drupal/tool": "Install to expose AI Translate as a Tool plugin via the optional ai_translate_tool submodule."
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.4.4",
-                    "datestamp": "1793183967",
+                    "version": "1.4.5",
+                    "datestamp": "1795015812",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1921,21 +1933,21 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_translate"
             },
-            "published-time": "2026-10-28T10:39:07+00:00"
+            "published-time": "2026-11-18T15:29:51+00:00"
         },
         {
             "name": "drupal/ai_validations",
-            "version": "1.4.0",
+            "version": "1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/ai_validations.git",
-                "reference": "1.4.0"
+                "reference": "1.4.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/ai_validations-1.4.0.zip",
-                "reference": "1.4.0",
-                "shasum": "e325bbcd5eb34c8a9f343707c6cefc62756b6c92"
+                "url": "https://ftp.drupal.org/files/projects/ai_validations-1.4.1.zip",
+                "reference": "1.4.1",
+                "shasum": "f30e830d7403cb11283b739728bbd66204fdb547"
             },
             "require": {
                 "drupal/ai": "^1.3",
@@ -1951,8 +1963,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.4.0",
-                    "datestamp": "1792067901",
+                    "version": "1.4.1",
+                    "datestamp": "1795082573",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -1994,7 +2006,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/ai_validations"
             },
-            "published-time": "2026-10-15T12:31:17+00:00"
+            "published-time": "2026-11-19T09:46:04+00:00"
         },
         {
             "name": "drupal/ai_vdb_provider_postgres",
@@ -2289,6 +2301,10 @@
             ],
             "description": "Replaces the Views default single- or multi-select boxes with more advanced options.",
             "homepage": "https://www.drupal.org/project/better_exposed_filters",
+            "keywords": [
+                "Actively maintained",
+                "Administration tools"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
@@ -3076,6 +3092,10 @@
             ],
             "description": "Provides a number of utility and helper APIs for Drupal developers and site builders.",
             "homepage": "https://www.drupal.org/project/ctools",
+            "keywords": [
+                "Actively maintained",
+                "Administration tools"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/ctools",
                 "issues": "https://www.drupal.org/project/issues/ctools"
@@ -3485,26 +3505,26 @@
         },
         {
             "name": "drupal/easy_email_theme",
-            "version": "1.1.1",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/easy_email_theme.git",
-                "reference": "1.1.1"
+                "reference": "1.2.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/easy_email_theme-1.1.1.zip",
-                "reference": "1.1.1",
-                "shasum": "f90a3e4a06f00d80d12bc7c42a0aeadec97aeedb"
+                "url": "https://ftp.drupal.org/files/projects/easy_email_theme-1.2.0.zip",
+                "reference": "1.2.0",
+                "shasum": "de06ea8d466693119550814af05c9c107d9d11ae"
             },
             "require": {
-                "drupal/core": "^10.2 || ^11"
+                "drupal/core": "^10.2 || ^11 || ^12"
             },
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "1.1.1",
-                    "datestamp": "1794855439",
+                    "version": "1.2.0",
+                    "datestamp": "1795183493",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3529,7 +3549,7 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/easy_email_theme"
             },
-            "published-time": "2026-11-16T18:56:57+00:00"
+            "published-time": "2026-11-20T14:04:32+00:00"
         },
         {
             "name": "drupal/eca",
@@ -4131,6 +4151,10 @@
             ],
             "description": "Provides jQuery UI library.",
             "homepage": "https://www.drupal.org/project/jquery_ui",
+            "keywords": [
+                "Developer tools",
+                "Minimally maintained"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui"
             },
@@ -4193,6 +4217,10 @@
             ],
             "description": "Provides jQuery UI Resizable library.",
             "homepage": "https://www.drupal.org/project/jquery_ui_resizable",
+            "keywords": [
+                "Actively maintained",
+                "Developer tools"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/jquery_ui_resizable"
             },
@@ -4333,7 +4361,8 @@
             "description": "Implements the Klaro! consent manager utility into Drupal.",
             "homepage": "https://www.drupal.org/project/klaro",
             "keywords": [
-                "Drupal"
+                "Drupal",
+                "Integrations"
             ],
             "support": {
                 "source": "https://git.drupalcode.org/project/klaro",
@@ -4374,17 +4403,17 @@
         },
         {
             "name": "drupal/linkit",
-            "version": "7.0.18",
+            "version": "7.0.19",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/linkit.git",
-                "reference": "7.0.18"
+                "reference": "7.0.19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.18.zip",
-                "reference": "7.0.18",
-                "shasum": "f5bb814b0ed8390f64c603e99b01dd00c3837be2"
+                "url": "https://ftp.drupal.org/files/projects/linkit-7.0.19.zip",
+                "reference": "7.0.19",
+                "shasum": "9fe84b73562a8d25f2a2f70bd75cbf9c848c9e4f"
             },
             "require": {
                 "drupal/core": "^10.2 || ^11 || ^12"
@@ -4392,8 +4421,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "7.0.18",
-                    "datestamp": "1794259888",
+                    "version": "7.0.19",
+                    "datestamp": "1795209476",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4426,19 +4455,19 @@
                 {
                     "name": "mark_fullmer",
                     "homepage": "https://www.drupal.org/user/2612816"
-                },
-                {
-                    "name": "utexas",
-                    "homepage": "https://www.drupal.org/user/3716409"
                 }
             ],
             "description": "Linkit - Enriched linking experience",
             "homepage": "http://drupal.org/project/linkit",
+            "keywords": [
+                "Administration tools",
+                "Minimally maintained"
+            ],
             "support": {
                 "source": "http://cgit.drupalcode.org/linkit",
                 "issues": "http://drupal.org/project/linkit"
             },
-            "published-time": "2026-11-09T21:31:07+00:00"
+            "published-time": "2026-11-20T21:17:35+00:00"
         },
         {
             "name": "drupal/login_emailusername",
@@ -5169,6 +5198,10 @@
             ],
             "description": "Automatically publish and unpublish content at specified dates and times.",
             "homepage": "https://drupal.org/project/scheduler",
+            "keywords": [
+                "Actively maintained",
+                "Administration tools"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/scheduler",
                 "issues": "https://www.drupal.org/project/issues/scheduler"
@@ -5306,6 +5339,10 @@
             ],
             "description": "Provides a generic framework for modules offering search capabilities.",
             "homepage": "https://www.drupal.org/project/search_api",
+            "keywords": [
+                "Actively maintained",
+                "Site search"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/search_api",
                 "issues": "https://www.drupal.org/project/issues/search_api",
@@ -5471,6 +5508,10 @@
             ],
             "description": "Drupal Symfony Mailer Lite",
             "homepage": "https://www.drupal.org/project/symfony_mailer_lite",
+            "keywords": [
+                "Actively maintained",
+                "Integrations"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/symfony_mailer_lite"
             },
@@ -5525,6 +5566,10 @@
             ],
             "description": "Integration with the Tagify JavaScript library.",
             "homepage": "https://drupal.org/project/tagify",
+            "keywords": [
+                "Actively maintained",
+                "Administration tools"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/tagify",
                 "issues": "https://www.drupal.org/project/issues/tagify"
@@ -5655,6 +5700,10 @@
             ],
             "description": "This module adds a trash bin for all content entities.",
             "homepage": "https://www.drupal.org/project/trash",
+            "keywords": [
+                "Actively maintained",
+                "Content editing experience"
+            ],
             "support": {
                 "source": "https://git.drupalcode.org/project/trash"
             },
@@ -6118,22 +6167,22 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.16.1",
+            "version": "7.16.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "81755d989b3007ca7f88a069857553cd08e7dc2e"
+                "reference": "b0605f32e77a13cf98bc5e75b1d71877b6814e17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/81755d989b3007ca7f88a069857553cd08e7dc2e",
-                "reference": "81755d989b3007ca7f88a069857553cd08e7dc2e",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b0605f32e77a13cf98bc5e75b1d71877b6814e17",
+                "reference": "b0605f32e77a13cf98bc5e75b1d71877b6814e17",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^2.6",
-                "guzzlehttp/psr7": "^2.13.2",
+                "guzzlehttp/promises": "^2.6.1",
+                "guzzlehttp/psr7": "^2.13.5",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
                 "symfony/deprecation-contracts": "^2.5 || ^3.0",
@@ -6226,7 +6275,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.16.1"
+                "source": "https://github.com/guzzle/guzzle/tree/7.16.5"
             },
             "funding": [
                 {
@@ -6242,21 +6291,21 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-25T21:35:21+00:00",
-            "published-time": "2026-10-25T21:37:23+00:00"
+            "time": "2026-11-20T22:56:33+00:00",
+            "published-time": "2026-11-20T22:57:55+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.6.0",
+            "version": "2.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "3d88c829bd5f13d13847b39067dbf09a60af2154"
+                "reference": "72e93ed2b1f3d8c09d1460c950bd5726face7ccd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/3d88c829bd5f13d13847b39067dbf09a60af2154",
-                "reference": "3d88c829bd5f13d13847b39067dbf09a60af2154",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/72e93ed2b1f3d8c09d1460c950bd5726face7ccd",
+                "reference": "72e93ed2b1f3d8c09d1460c950bd5726face7ccd",
                 "shasum": ""
             },
             "require": {
@@ -6311,7 +6360,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.6.0"
+                "source": "https://github.com/guzzle/promises/tree/2.6.2"
             },
             "funding": [
                 {
@@ -6327,21 +6376,21 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-10-18T12:46:59+00:00",
-            "published-time": "2026-10-18T12:47:39+00:00"
+            "time": "2026-11-21T03:45:23+00:00",
+            "published-time": "2026-11-21T03:46:19+00:00"
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.13.3",
+            "version": "2.13.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "6d3cd8285a97eaa352956a4ada92fa03ecce1c4e"
+                "reference": "5aa00c5418afbe3f435910af0e98cb03d659c49d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/6d3cd8285a97eaa352956a4ada92fa03ecce1c4e",
-                "reference": "6d3cd8285a97eaa352956a4ada92fa03ecce1c4e",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/5aa00c5418afbe3f435910af0e98cb03d659c49d",
+                "reference": "5aa00c5418afbe3f435910af0e98cb03d659c49d",
                 "shasum": ""
             },
             "require": {
@@ -6431,7 +6480,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.13.3"
+                "source": "https://github.com/guzzle/psr7/tree/2.13.5"
             },
             "funding": [
                 {
@@ -6447,8 +6496,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-11-12T15:57:42+00:00",
-            "published-time": "2026-11-12T15:58:42+00:00"
+            "time": "2026-11-19T20:34:53+00:00",
+            "published-time": "2026-11-19T20:36:04+00:00"
         },
         {
             "name": "html2text/html2text",
@@ -11213,16 +11262,16 @@
         },
         {
             "name": "symfony/polyfill-php85",
-            "version": "v1.43.0",
+            "version": "v1.44.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-php85.git",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6"
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/86a42cbcc07adc331481a5ab310a4024bfc227f6",
-                "reference": "86a42cbcc07adc331481a5ab310a4024bfc227f6",
+                "url": "https://api.github.com/repos/symfony/polyfill-php85/zipball/94c794cb5ba51784bc259f11e9f128593297d8dc",
+                "reference": "94c794cb5ba51784bc259f11e9f128593297d8dc",
                 "shasum": ""
             },
             "require": {
@@ -11269,7 +11318,7 @@
                 "shim"
             ],
             "support": {
-                "source": "https://github.com/symfony/polyfill-php85/tree/v1.43.0"
+                "source": "https://github.com/symfony/polyfill-php85/tree/v1.44.0"
             },
             "funding": [
                 {
@@ -11289,8 +11338,8 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-09-25T15:46:47+00:00",
-            "published-time": "2026-09-30T10:23:32+00:00"
+            "time": "2026-10-30T15:20:09+00:00",
+            "published-time": "2026-11-15T14:20:22+00:00"
         },
         {
             "name": "symfony/polyfill-php86",
