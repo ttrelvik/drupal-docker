@@ -89,3 +89,12 @@ $settings['reverse_proxy_trusted_headers'] = \Symfony\Component\HttpFoundation\R
 // --- Guzzle HTTP Client Settings ---
 // Force IPv4 to avoid Docker IPv6 timeout issues interacting with OpenAI.
 $settings['http_client_config']['force_ip_resolve'] = 'v4';
+
+// --- Form Validation Settings ---
+// Disable client-side HTML5 form validation. Drupal 12 changes the default to
+// FALSE and Drupal 13 removes the option; browser-native validation tooltips
+// create accessibility/ARIA issues, ignore site language, and can silently
+// block submission on complex forms, whereas server-side validation handles all
+// validation reliably.
+// @see https://www.drupal.org/node/3537128
+$settings['enable_html5_validation'] = FALSE;
